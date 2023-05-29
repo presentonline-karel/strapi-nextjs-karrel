@@ -1,0 +1,44 @@
+{
+  "kind": "singleType",
+  "collectionName": "globals",
+  "info": {
+    "singularName": "global",
+    "pluralName": "globals",
+    "displayName": "global",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Metadata": {
+      "displayName": "metadata",
+      "type": "component",
+      "repeatable": false,
+      "component": "meta.metadata"
+    },
+    "favicon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "navbar": {
+      "displayName": "navbar",
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.navbar"
+    },
+    "footer": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.footer"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_elements_skills",
+  "info": {
+    "displayName": "skill",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "enumeration",
+      "enum": [
+        "pencil",
+        "keyboard",
+        "camera"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "text": {
+      "type": "richtext"
+    }
+  }
+}

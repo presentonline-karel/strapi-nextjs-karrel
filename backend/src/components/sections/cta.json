@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_sections_ctas",
+  "info": {
+    "displayName": "cta",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "text": {
+      "type": "richtext"
+    },
+    "buttons": {
+      "type": "component",
+      "repeatable": true,
+      "component": "links.button"
+    }
+  }
+}

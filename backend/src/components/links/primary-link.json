@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_links_primary_links",
+  "info": {
+    "displayName": "primaryLink"
+  },
+  "options": {},
+  "attributes": {
+    "url": {
+      "type": "string"
+    }
+  }
+}
