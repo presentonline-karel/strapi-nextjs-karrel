@@ -1,6 +1,6 @@
 // Sections
-import HeroPrimary from "@/app/components/HeroPrimary";
-import Skills from "@/app/components/Skills";
+import HeroPrimary from "@/app/components/sections/HeroPrimary";
+import Skills from "@/app/components/sections/Skills";
 
 
 

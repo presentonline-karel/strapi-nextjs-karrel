@@ -1,3 +1,73 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+
+  /* Headings */
+  .h {
+    @apply text-neutrals-1100 font-headings font-semibold tracking-tight;
+  }
+
+  .h1 {
+    @apply text-3xl mb-5 xl:text-7xl xl:mb-6;
+  }
+
+  .h2 {
+    @apply text-3xl mb-5 xl:text-6xl xl:mb-6;
+  }
+
+  .h3 {
+    @apply text-2xl xl:text-4xl;
+  }
+
+  .h4 {
+    @apply text-xl xl:text-3xl;
+  }
+
+  .h5 {
+    @apply text-lg xl:text-2xl;
+  }
+
+  .h6 {
+    @apply text-base xl:text-xl;
+  }
+
+  /* Paragraphs */
+  .p {
+    @apply text-base text-neutrals-800 font-paragraphs xl:text-xl;
+  }
+}
+
+
+
+@layer components {
+
+  /* Buttons */
+  .btn {
+    @apply py-2.5 px-5 font-headings rounded text-neutrals-1100 font-medium text-base leading-6 xl:text-[18px] xl:leading-8 xl:py-3 xl:px-6;
+  }
+
+  .btn--primary {
+    @apply bg-prim-500 hover:bg-prim-400 hover:cursor-pointer;
+  }
+
+  /* Sections */
+  .section {
+    @apply py-14 px-4 bg-neutrals-100 lg:py-[120px] lg:px-[120px];
+  }
+}
+
+
+
+@layer utilities {
+
+  /* Animation */
+  * {
+    @apply transition-all ease-in-out duration-300 box-border;
+  }
+
+  a {
+    @apply inline-block;
+  }
+}
