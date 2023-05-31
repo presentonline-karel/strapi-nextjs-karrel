@@ -2,10 +2,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-// Utils
-import { getStrapiMedia } from "@/utils/api-helpers";
-import { getStrapiURL } from "@/utils/api-helpers";
-
 // Types
 interface Button {
   id: string;
@@ -40,16 +36,9 @@ interface HeroPrimaryProps {
 
 
 export default function HeroPrimary({data}: HeroPrimaryProps) {
-
-  // Generate imageUrl
-  const imageUrl = getStrapiMedia(data.image.data.attributes.url);
-
   return (
-    <section>
-      <div>
-        {data.label}
-        {data.title}
-      </div>
-    </section>
+    <div>
+      <h1 className="bg-orange-700">{data.title}</h1>
+    </div>
   );
 }
