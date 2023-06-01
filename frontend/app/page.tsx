@@ -7,6 +7,11 @@ import { useState, useEffect } from "react";
 import { fetcher } from "@/utils/fetcher";
 import { sectionRenderer } from "@/utils/section-renderer";
 
+// import Font Awesome CSS
+import "@fortawesome/fontawesome-svg-core/styles.css"; 
+import { config } from "@fortawesome/fontawesome-svg-core";
+config.autoAddCss = false;
+
 
 
 export default function RootRoute() {
@@ -23,5 +28,5 @@ export default function RootRoute() {
     getHomePage();
   }, []);
 
-  return contentSections.map((section: any, index: number) => sectionRenderer(section, index));
+  //return contentSections.map((section: any, index: number) => sectionRenderer(section, index));
 }
