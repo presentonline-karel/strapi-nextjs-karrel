@@ -39,7 +39,7 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${poppins.variable}`}
     >
-      <body>
+      <body className="w-full overflow-x-hidden">
         <Nav />
         {children}
       </body>

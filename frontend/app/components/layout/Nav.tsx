@@ -36,15 +36,20 @@ export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="Nav / py-5 px-4 / md:flex md:justify-between md:items-center md:py-8 md:px-12 / lg:py-10 lg:px-[120px]">
+    <nav className="Nav / py-5 px-4 / sm:px-12 sm:py-8 / md:flex md:justify-between md:items-center md:py-8 md:px-12 md:border-b-[0.4px] border-neutrals-400 / lg:py-10 lg:px-[120px]">
+
       {/* Top */}
       <div className="flex justify-between items-center">
-        <Image
-          src="/Karrel-Logo-Dark.png"
-          alt="Karrel logo"
-          width={102}
-          height={40}
-        />
+        <Link href={`/`}>
+          <div className="Logo / relative w-[102px] h-[40px] / xl:w-[164px] xl:h-[64px]">
+            <Image
+              src="/Karrel-Logo-Dark.png"
+              alt="Karrel logo"
+              fill={true}
+            />
+          </div>
+        </Link>
+
         <Image
           onClick={() => setMenuOpen(true)}
           className="md:hidden"
@@ -57,9 +62,7 @@ export default function Nav() {
 
       {/* Sliding nav */}
       <div
-        className={`Sliding-Nav / ${
-          menuOpen ? "fixed" : "hidden"
-        } / absolute top-0 right-0 w-[271px] h-full bg-neutrals-1000 py-5 px-4 rounded-tl rounded-bl flex flex-col justify-between shadow-card`}
+        className={`Sliding-Nav / ${menuOpen ? "translate-x-0" : "translate-x-[271px] sm:translate-x-[384px]"} / fixed top-0 right-0 w-[271px] h-full bg-neutrals-1000 py-5 px-4 rounded-tl rounded-bl flex flex-col justify-between shadow-card / sm:py-8 sm:w-[384px] sm:px-12`}
       >
         <div className="Top /">
           <div className="Header / flex justify-between items-center mb-16">
@@ -184,7 +187,7 @@ export default function Nav() {
         <div className="Menu-Items / flex justify-center items-center gap-8 / lg:gap-10">
           <Link
             href={`/`}
-            className="Menu-Item / block text-xl font-headings font-medium text-neutrals-1100 / lg:text-2xl"
+            className="Menu-Item / block text-xl font-headings font-medium text-neutrals-1100 / hover:text-prim-500 / lg:text-2xl"
           >
             <span className="Number / text-sm font-normal text-prim-500 pr-3">
               01.
@@ -193,7 +196,7 @@ export default function Nav() {
           </Link>
           <Link
             href={`/`}
-            className="Menu-Item / block text-xl font-headings font-medium text-neutrals-1100 / lg:text-2xl"
+            className="Menu-Item / block text-xl font-headings font-medium text-neutrals-1100 / hover:text-prim-500 / lg:text-2xl"
           >
             <span className="Number / text-sm font-normal text-prim-500 pr-3">
               02.
@@ -202,7 +205,7 @@ export default function Nav() {
           </Link>
           <Link
             href={`/`}
-            className="Menu-Item / block text-xl font-headings font-medium text-neutrals-1100 / lg:text-2xl"
+            className="Menu-Item / block text-xl font-headings font-medium text-neutrals-1100 / hover:text-prim-500 / lg:text-2xl"
           >
             <span className="Number / text-sm font-normal text-prim-500 pr-3">
               03.
@@ -211,7 +214,7 @@ export default function Nav() {
           </Link>
           <Link
             href={`/`}
-            className="Menu-Item / block text-xl font-headings font-medium text-neutrals-1100 / lg:text-2xl"
+            className="Menu-Item / block text-xl font-headings font-medium text-neutrals-1100 / hover:text-prim-500 / lg:text-2xl"
           >
             <span className="Number / text-sm font-normal text-prim-500 pr-3">
               04.
@@ -224,7 +227,7 @@ export default function Nav() {
       {/* Desktop CTA */}
       <Link
         href={`mailto:info@karrel.be`}
-        className="Desktop-CTA / hidden / md:flex md:items-center md:gap-3 / lg:text-lg"
+        className="Desktop-CTA / hidden / hover:text-prim-500 / md:text-neutrals-1100 md:flex md:items-center md:gap-3 / lg:text-lg / xl:text-xl"
       >
         <FontAwesomeIcon
           icon={faEnvelope}
