@@ -36,10 +36,10 @@ export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="Nav / md:border-b-[0.4px] md:border-neutrals-400">
+    <nav className="Nav / md:border-neutrals-400">
 
       {/* Container */}
-      <div className="Container / py-5 px-4 / sm:px-12 sm:py-8 / md:flex md:justify-between md:items-center md:py-8 md:px-12 / lg:py-10 lg:px-[120px] / xl:max-w-[1440px] xl:mx-auto">
+      <div className="Container / py-5 px-4 / sm:px-12 sm:py-8 / md:flex md:justify-between md:items-center md:py-8 md:px-12 md:border-b-[0.4px] / lg:py-10 lg:px-[120px] / xl:max-w-[1440px] xl:mx-auto xl:border-x-[0.4px] xl:border-neutrals-400">
 
         {/* Top */}
         <div className="flex justify-between items-center">
@@ -69,7 +69,7 @@ export default function Nav() {
             menuOpen
               ? "translate-x-0"
               : "translate-x-[271px] sm:translate-x-[384px]"
-          } / fixed top-0 right-0 w-[271px] h-full bg-neutrals-1000 py-5 px-4 rounded-tl rounded-bl flex flex-col justify-between shadow-card / sm:py-8 sm:w-[384px] sm:px-12`}
+          } / fixed top-0 right-0 w-[271px] h-full bg-neutrals-1000 py-5 px-4 rounded-tl rounded-bl flex flex-col justify-between shadow-card z-10 / sm:py-8 sm:w-[384px] sm:px-12`}
         >
           <div className="Top /">
             <div className="Header / flex justify-between items-center mb-16">

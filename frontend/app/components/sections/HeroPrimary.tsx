@@ -15,13 +15,13 @@ interface Button {
 
 interface Picture {
   data: {
-    id: string,
+    id: string;
     attributes: {
-      url: string,
-      name: string,
+      url: string;
+      name: string;
       alternativeText: string;
-    }
-  }
+    };
+  };
 }
 
 interface HeroPrimaryProps {
@@ -32,26 +32,40 @@ interface HeroPrimaryProps {
     text: string;
     buttons: Button[];
     image: Picture;
-  }
+  };
 }
 
 
 
-export default function HeroPrimary({data}: HeroPrimaryProps) {
+export default function HeroPrimary({ data }: HeroPrimaryProps) {
   return (
-    <div className="section">
-      <h1 className="h h1">{data.title}</h1>
-      <h2 className="h h2">{data.title}</h2>
-      <h3 className="h h3">{data.title}</h3>
-      <h4 className="h h4">{data.title}</h4>
-      <h5 className="h h5">{data.title}</h5>
-      <h6 className="h h6">{data.title}</h6>
+    <div className="Hero-Primary section / bg-neutrals-100 / md:py-0">
+      <div className="Container / flex flex-col gap-10 px-4 / sm:px-12 sm:gap-16 / md:p-0 md:flex-row md:gap-12 md:items-center / lg:gap-[102px] / xl:border-x-[0.4px] xl:border-neutrals-400 xl:max-w-[1440px] xl:mx-auto">
+        <div className="Text / md:w-1/2 md:pl-12 / lg:pl-[120px]">
+          <div className="section__label">Hi, I am</div>
+          <h1 className="h h1">Karel Decoene</h1>
+          <p className="p / mb-6 / xl:mb-10">
+            Mauris consectetur magna dictum libero porta, et venenatis tortor
+            posuere. Class aptent taciti sociosqu ad litora torquent per
+            conubia.
+          </p>
+          <Link
+            href={`#`}
+            className="btn btn--primary"
+          >
+            Read my blog
+          </Link>
+        </div>
 
-      <div>
-        <p className="p">Het is al geruime tijd een bekend gegeven dat een lezer, tijdens het bekijken van de layout van een pagina, afgeleid wordt door de tekstuele.</p>
+        <div className="Image / relative w-full aspect-square z-0 / md:w-1/2 md:h-[calc(100vh-104.5px)] md:max-h-[880px] / lg:h-[calc(100vh-121px)]">
+          <Image
+            src="/Karrel-Home-Hero-Img.jpg"
+            className="object-cover rounded border-[0.4px] border-neutrals-400 shadow-card / md:shadow-none md:border-t-0 md:rounded-none"
+            alt="Home hero image"
+            fill={true}
+          />
+        </div>
       </div>
-
-      <a className="btn btn--primary">Read my blog</a>
     </div>
   );
 }

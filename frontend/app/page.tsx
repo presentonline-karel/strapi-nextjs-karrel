@@ -28,5 +28,5 @@ export default function RootRoute() {
     getHomePage();
   }, []);
 
-  //return contentSections.map((section: any, index: number) => sectionRenderer(section, index));
+  return contentSections.map((section: any, index: number) => sectionRenderer(section, index));
 }
