@@ -19,6 +19,6 @@ export function sectionRenderer(section: any, index: number) {
     case "sections.skills":
       return <Skills key={index} />;
     default:
-      return <div key={index}>No data</div>;
+      return <div key={index} className="bg-red-200">No data</div>;
   }
 }

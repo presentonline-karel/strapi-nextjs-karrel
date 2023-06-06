@@ -91,7 +91,7 @@ export default function Nav() {
             <div className="Menu-Items / flex flex-col gap-4 mb-20">
               <Link
                 href={`/`}
-                className="Menu-Item / block text-3xl font-headings font-medium text-neutrals-100"
+                className="Menu-Item / block text-3xl font-headings font-medium text-neutrals-100 tracking-tight"
               >
                 <span className="Number / text-sm font-normal text-prim-500 pr-3">
                   01.
@@ -100,7 +100,7 @@ export default function Nav() {
               </Link>
               <Link
                 href={`/`}
-                className="Menu-Item / block text-3xl font-headings font-medium text-neutrals-100"
+                className="Menu-Item / block text-3xl font-headings font-medium text-neutrals-100 tracking-tight"
               >
                 <span className="Number / text-sm font-normal text-prim-500 pr-3">
                   02.
@@ -109,7 +109,7 @@ export default function Nav() {
               </Link>
               <Link
                 href={`/`}
-                className="Menu-Item / block text-3xl font-headings font-medium text-neutrals-100"
+                className="Menu-Item / block text-3xl font-headings font-medium text-neutrals-100 tracking-tight"
               >
                 <span className="Number / text-sm font-normal text-prim-500 pr-3">
                   03.
@@ -118,7 +118,7 @@ export default function Nav() {
               </Link>
               <Link
                 href={`/`}
-                className="Menu-Item / block text-3xl font-headings font-medium text-neutrals-100"
+                className="Menu-Item / block text-3xl font-headings font-medium text-neutrals-100 tracking-tight"
               >
                 <span className="Number / text-sm font-normal text-prim-500 pr-3">
                   04.
@@ -130,7 +130,7 @@ export default function Nav() {
             <div className="Socials / mb-20">
               <Link
                 href={`/`}
-                className="Menu-Item / block text-3xl font-headings font-medium text-neutrals-100 mb-5"
+                className="Menu-Item / block text-3xl font-headings font-medium text-neutrals-100 mb-5 tracking-tight"
               >
                 <span className="Number / text-sm font-normal text-prim-500 pr-3">
                   00.
@@ -161,7 +161,7 @@ export default function Nav() {
             <div className="Contact-Links /">
               <Link
                 href={`mailto:info@karrel.be`}
-                className="mb-3 text-xl text-neutrals-100 flex items-center gap-5"
+                className="mb-3 text-xl text-neutrals-100 flex items-center gap-5 tracking-tight"
               >
                 <FontAwesomeIcon
                   icon={faEnvelope}
@@ -171,7 +171,7 @@ export default function Nav() {
               </Link>
               <Link
                 href={`tel:+32476280902`}
-                className="text-xl text-neutrals-100 flex items-center gap-5"
+                className="text-xl text-neutrals-100 flex items-center gap-5 tracking-tight"
               >
                 <FontAwesomeIcon
                   icon={faPhone}
@@ -194,7 +194,7 @@ export default function Nav() {
           <div className="Menu-Items / flex justify-center items-center gap-8 / lg:gap-10">
             <Link
               href={`/`}
-              className="Menu-Item / block text-xl font-headings font-medium text-neutrals-1100 / hover:text-prim-500 / lg:text-2xl"
+              className="Menu-Item / block text-xl font-headings font-semibold text-neutrals-1100 tracking-tight / hover:text-prim-500 / lg:text-2xl"
             >
               <span className="Number / text-sm font-normal text-prim-500 pr-3">
                 01.
@@ -203,7 +203,7 @@ export default function Nav() {
             </Link>
             <Link
               href={`/`}
-              className="Menu-Item / block text-xl font-headings font-medium text-neutrals-1100 / hover:text-prim-500 / lg:text-2xl"
+              className="Menu-Item / block text-xl font-headings font-semibold text-neutrals-1100 tracking-tight / hover:text-prim-500 / lg:text-2xl"
             >
               <span className="Number / text-sm font-normal text-prim-500 pr-3">
                 02.
@@ -212,7 +212,7 @@ export default function Nav() {
             </Link>
             <Link
               href={`/`}
-              className="Menu-Item / block text-xl font-headings font-medium text-neutrals-1100 / hover:text-prim-500 / lg:text-2xl"
+              className="Menu-Item / block text-xl font-headings font-semibold text-neutrals-1100 tracking-tight / hover:text-prim-500 / lg:text-2xl"
             >
               <span className="Number / text-sm font-normal text-prim-500 pr-3">
                 03.
@@ -221,7 +221,7 @@ export default function Nav() {
             </Link>
             <Link
               href={`/`}
-              className="Menu-Item / block text-xl font-headings font-medium text-neutrals-1100 / hover:text-prim-500 / lg:text-2xl"
+              className="Menu-Item / block text-xl font-headings font-semibold text-neutrals-1100 tracking-tight / hover:text-prim-500 / lg:text-2xl"
             >
               <span className="Number / text-sm font-normal text-prim-500 pr-3">
                 04.
@@ -234,7 +234,7 @@ export default function Nav() {
         {/* Desktop CTA */}
         <Link
           href={`mailto:info@karrel.be`}
-          className="Desktop-CTA / hidden / hover:text-prim-500 / md:text-neutrals-1100 md:flex md:items-center md:gap-3 / lg:text-lg / xl:text-xl"
+          className="Desktop-CTA / hidden / hover:text-prim-500 / md:text-neutrals-1100 md:flex md:items-center md:gap-3 md:tracking-tight / lg:text-lg / xl:text-xl"
         >
           <FontAwesomeIcon
             icon={faEnvelope}
