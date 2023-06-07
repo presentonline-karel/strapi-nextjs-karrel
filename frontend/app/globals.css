@@ -54,7 +54,7 @@
 
   /* Sections */
   .section {
-    @apply py-14 bg-neutrals-100 lg:py-[120px];
+    @apply py-14 bg-neutrals-100;
   }
 
   .section__label {

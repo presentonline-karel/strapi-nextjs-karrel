@@ -23,7 +23,7 @@ export default function Skills() {
             <div className="Content /">
               <div className="Heading / flex gap-3 justify-start items-baseline mb-4 / xl:gap-4 xl:mb-5">
                 <FontAwesomeIcon icon={faPen} className="text-sm leading-[22px] text-prim-500 / xl:text-lg xl:leading-8" />
-                <h3 className="h h3">Web design</h3>
+                <h3 className="h h3 / xl:text-3xl">Web design</h3>
               </div>
 
               <p className="p / mb-5 / xl:text-base xl:mb-8">
@@ -41,7 +41,7 @@ export default function Skills() {
             <div className="Content /">
               <div className="Heading / flex gap-3 justify-start items-baseline mb-4 / xl:gap-4 xl:mb-5">
                 <FontAwesomeIcon icon={faKeyboard} className="text-sm leading-[22px] text-prim-500  / xl:text-lg xl:leading-8" />
-                <h3 className="h h3">Web development</h3>
+                <h3 className="h h3 / xl:text-3xl">Web development</h3>
               </div>
 
               <p className="p / mb-5 / xl:text-base xl:mb-8">
@@ -59,7 +59,7 @@ export default function Skills() {
             <div className="Content /">
               <div className="Heading / flex gap-3 justify-start items-baseline mb-4 / xl:gap-4 xl:mb-5">
                 <FontAwesomeIcon icon={faCamera} className="text-sm leading-[22px] text-prim-500 / xl:text-lg xl:leading-8" />
-                <h3 className="h h3">Photography</h3>
+                <h3 className="h h3 / xl:text-3xl">Photography</h3>
               </div>
 
               <p className="p / mb-5 / xl:text-base xl:mb-8">
