@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_sections_blogposts",
+  "info": {
+    "displayName": "Blogposts"
+  },
+  "options": {},
+  "attributes": {
+    "includeAll": {
+      "type": "boolean"
+    },
+    "articles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::article.article"
+    }
+  }
+}

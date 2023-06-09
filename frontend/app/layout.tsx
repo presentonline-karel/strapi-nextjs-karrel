@@ -6,6 +6,7 @@ import { Inter, Poppins } from "next/font/google";
 
 // Components
 import Nav from "./components/layout/Nav";
+import Footer from "./components/layout/Footer";
 
 
 
@@ -42,6 +43,7 @@ export default function RootLayout({
       <body className="w-full overflow-x-hidden">
         <Nav />
         {children}
+        <Footer />
       </body>
     </html>
   );

@@ -42,13 +42,9 @@ export default function HeroPrimary({ data }: HeroPrimaryProps) {
     <div className="Hero-Primary section / bg-neutrals-100 / md:py-0">
       <div className="Container / flex flex-col gap-10 px-4 / sm:px-12 sm:gap-16 / md:p-0 md:flex-row md:gap-12 md:items-center / lg:gap-[102px] / xl:border-x-[0.4px] xl:border-neutrals-400 xl:max-w-[1440px] xl:mx-auto">
         <div className="Text / md:w-1/2 md:pl-12 / lg:pl-[120px]">
-          <div className="section__label">Hi, I am</div>
-          <h1 className="h h1">Karel Decoene</h1>
-          <p className="p / mb-6 / xl:mb-10">
-            Mauris consectetur magna dictum libero porta, et venenatis tortor
-            posuere. Class aptent taciti sociosqu ad litora torquent per
-            conubia.
-          </p>
+          <div className="section__label">{data.label}</div>
+          <h1 className="h h1">{data.title}</h1>
+          <p className="p / mb-6 / xl:mb-10">{data.text}</p>
           <Link
             href={`#`}
             className="btn btn--primary"

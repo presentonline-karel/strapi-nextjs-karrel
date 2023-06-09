@@ -30,7 +30,9 @@
         "sections.text-image",
         "sections.text-image-modified",
         "sections.cta",
-        "sections.contact-form"
+        "sections.contact-form",
+        "sections.blogposts",
+        "sections.related-articles"
       ]
     },
     "slug": {

@@ -52,6 +52,11 @@
     @apply bg-prim-500 hover:bg-prim-400 hover:cursor-pointer;
   }
 
+  /* Tags */
+  .tag {
+    @apply inline-block text-sm leading-[14px] font-headings text-prim-600 bg-prim-100 rounded-full border-[0.4px] border-prim-300 px-3 py-2 tracking-tight;
+  }
+
   /* Sections */
   .section {
     @apply py-14 bg-neutrals-100;

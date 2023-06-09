@@ -161,7 +161,7 @@ export default function Nav() {
             <div className="Contact-Links /">
               <Link
                 href={`mailto:info@karrel.be`}
-                className="mb-3 text-xl text-neutrals-100 flex items-center gap-5 tracking-tight"
+                className="mb-3 text-xl text-neutrals-100 flex items-center gap-5 tracking-tight font-headings"
               >
                 <FontAwesomeIcon
                   icon={faEnvelope}
@@ -171,7 +171,7 @@ export default function Nav() {
               </Link>
               <Link
                 href={`tel:+32476280902`}
-                className="text-xl text-neutrals-100 flex items-center gap-5 tracking-tight"
+                className="text-xl text-neutrals-100 flex items-center gap-5 tracking-tight font-headings"
               >
                 <FontAwesomeIcon
                   icon={faPhone}
