@@ -15,7 +15,6 @@ import RelatedArticles from "@/app/components/sections/RelatedArticles";
 
 
 export function sectionRenderer(section: any, index: number) {
-console.log(section);
   switch (section.__component) {
     case "sections.hero-primary":
       return <HeroPrimary key={index} data={section} />;

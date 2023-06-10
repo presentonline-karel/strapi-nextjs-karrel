@@ -16,7 +16,7 @@ import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 
 export default function Footer() {
   return (
-    <footer className="Footer / bg-neutrals-1000 pt-12 pb-4 / !py-0">
+    <footer className="Footer / bg-neutrals-1000 pt-12 pb-4 / lg:!py-0">
       <div className="Container / px-4 flex flex-col gap-4 items-center relative / sm:px-12 / lg:px-[120px] lg:pt-20 lg:pb-8 lg:gap-8 / xl:max-w-[1440px] xl:mx-auto xl:border-x-[0.4px] xl:border-neutrals-900">
         <div className="Content / pb-8 border-b-[1px] border-neutrals-800 flex flex-col gap-10 w-full / md:flex-row md:pr-[207px] md:justify-between / lg:pb-14">
           <div className="Company / sm:max-w-[343px]">

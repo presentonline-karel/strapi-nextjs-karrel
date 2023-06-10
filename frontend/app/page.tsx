@@ -8,19 +8,42 @@ import { fetcher } from "@/utils/fetcher";
 import { sectionRenderer } from "@/utils/section-renderer";
 
 // import Font Awesome CSS
-import "@fortawesome/fontawesome-svg-core/styles.css"; 
+import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
 
 
 
 export default function RootRoute() {
+
+  // State
   const [contentSections, setContentSections] = useState([]);
 
-  async function getHomePage() {
-    const resp = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/pages/1?populate=*`);
+  // Qs
+  const qs = require("qs");
 
-    if(resp.data.length === 0) return null;
+  async function getHomePage() {
+    const params = () => qs.stringify(
+      {
+        populate: {
+          contentSections: {
+            populate: "*",
+          },
+        },
+      }
+    )
+
+    const ID = 1;
+    const CONTENT_TYPE = "pages";
+    const BASE_URL = `${process.env.NEXT_PUBLIC_STRAPI_URL}/${CONTENT_TYPE}/${ID}?`;
+
+    const QUERY_1 = BASE_URL + params();
+
+    const resp = await fetcher(QUERY_1);
+
+    console.log(resp.data);
+
+    if (resp.data.length === 0) return null;
     setContentSections(resp.data.attributes.contentSections);
   }
 
