@@ -35,13 +35,11 @@ export default function RootRoute() {
 
     const ID = 1;
     const CONTENT_TYPE = "pages";
-    const BASE_URL = `${process.env.NEXT_PUBLIC_STRAPI_URL}/${CONTENT_TYPE}/${ID}?`;
+    const BASE_URL = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${CONTENT_TYPE}/${ID}?`;
 
     const QUERY_1 = BASE_URL + params();
 
     const resp = await fetcher(QUERY_1);
-
-    console.log(resp.data);
 
     if (resp.data.length === 0) return null;
     setContentSections(resp.data.attributes.contentSections);

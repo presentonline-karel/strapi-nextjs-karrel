@@ -19,17 +19,17 @@ export function sectionRenderer(section: any, index: number) {
     case "sections.hero-primary":
       return <HeroPrimary key={index} data={section} />;
     case "sections.hero-secondary":
-      return <HeroSecondary key={index} />;
+      return <HeroSecondary key={index} data={section} />;
     case "sections.header":
-      return <Header key={index} />;
+      return <Header key={index} data={section} />;
     case "sections.skills":
-      return <Skills key={index} />;
+      return <Skills key={index} data={section} />;
     case "sections.text-image":
-      return <TextWithImage key={index} />;
+      return <TextWithImage key={index} data={section} />;
     case "sections.text-image-modified":
-      return <TextWithImageModified key={index} />;
+      return <TextWithImageModified key={index} data={section} />;
     case "sections.cta":
-      return <Cta key={index} />;
+      return <Cta key={index} data={section} />;
     case "sections.contact-form":
       return <ContactForm key={index} />;
     case "sections.blogposts":

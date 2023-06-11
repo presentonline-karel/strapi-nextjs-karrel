@@ -1,10 +1,10 @@
 export function renderButtonStyle(type: String) {
 	switch (type) {
 		case "primary":
-			return "px-8 py-3 primary button styles/classes";
+			return "btn btn--primary styles/classes";
 		case "secondary":
-			return "px-8 py-3 secondary button styles/classes";
+			return "btn btn--secondary styles/classes";
 		default:
-			return "px-8 py-3 primary button styles/classes";
+			return "btn btn--primary styles/classes";
 	}
 }

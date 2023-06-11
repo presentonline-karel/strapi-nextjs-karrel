@@ -2,42 +2,19 @@
 import Image from "next/image";
 import Link from "next/link";
 
-
+// Utils
+import { renderButtonStyle } from "@/utils/render-button-style";
+import { getStrapiMedia } from "@/utils/fetcher";
 
 // Types
-interface Button {
-  id: string;
-  url: string;
-  text: string;
-  type: string;
-  newTab: boolean;
-}
-
-interface Picture {
-  data: {
-    id: string;
-    attributes: {
-      url: string;
-      name: string;
-      alternativeText: string;
-    };
-  };
-}
-
-interface HeroPrimaryProps {
-  data: {
-    id: string;
-    label: string;
-    title: string;
-    text: string;
-    buttons: Button[];
-    image: Picture;
-  };
-}
+import { HeroProps } from "@/types/sections/Hero";
+import { Button } from "@/types/Button";
 
 
 
-export default function HeroPrimary({ data }: HeroPrimaryProps) {
+export default function HeroPrimary({ data }: HeroProps) {
+  const imgUrl = getStrapiMedia(data.image.data.attributes.url);
+
   return (
     <div className="Hero-Primary section / bg-neutrals-100 / md:py-0">
       <div className="Container / flex flex-col gap-10 px-4 / sm:px-12 sm:gap-16 / md:p-0 md:flex-row md:gap-12 md:items-center / lg:gap-[102px] / xl:border-x-[0.4px] xl:border-neutrals-400 xl:max-w-[1440px] xl:mx-auto">
@@ -45,19 +22,26 @@ export default function HeroPrimary({ data }: HeroPrimaryProps) {
           <div className="section__label">{data.label}</div>
           <h1 className="h h1">{data.title}</h1>
           <p className="p / mb-6 / xl:mb-10">{data.text}</p>
-          <Link
-            href={`#`}
-            className="btn btn--primary"
-          >
-            Read my blog
-          </Link>
+
+          <div className="Buttons / flex items-center gap-2 / xl:gap-4">
+            {data.buttons.map((button: Button, index: number) => (
+              <Link
+                key={index}
+                href={button.url}
+                target={button.newTab ? "_blank" : "_self"}
+                className={renderButtonStyle(button.type)}
+              >
+                {button.text}
+              </Link>
+            ))}
+          </div>
         </div>
 
         <div className="Image / relative w-full aspect-square z-0 / md:w-1/2 md:h-[calc(100vh-104.5px)] md:max-h-[880px] / lg:h-[calc(100vh-121px)]">
           <Image
-            src="/Karrel-Home-Hero-Img.jpg"
+            src={imgUrl || ""}
+            alt={data.image.data.attributes.alternativeText || "none provided"}
             className="object-cover rounded border-[0.4px] border-neutrals-400 shadow-card / md:shadow-none md:border-t-0 md:rounded-none"
-            alt="Home hero image"
             fill={true}
           />
         </div>
