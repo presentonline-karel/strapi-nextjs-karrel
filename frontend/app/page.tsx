@@ -17,7 +17,7 @@ config.autoAddCss = false;
 export default function RootRoute() {
 
   // State
-  const [contentSections, setContentSections] = useState([]);
+  const [contentSectionsHome, setContentSectionsHome] = useState([]);
 
   // Qs
   const qs = require("qs");
@@ -42,12 +42,12 @@ export default function RootRoute() {
     const resp = await fetcher(QUERY_1);
 
     if (resp.data.length === 0) return null;
-    setContentSections(resp.data.attributes.contentSections);
+    setContentSectionsHome(resp.data.attributes.contentSections);
   }
 
   useEffect(() => {
     getHomePage();
   }, []);
 
-  return contentSections.map((section: any, index: number) => sectionRenderer(section, index));
+  return contentSectionsHome.map((section: any, index: number) => sectionRenderer(section, index));
 }

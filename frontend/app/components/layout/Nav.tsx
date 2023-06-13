@@ -20,19 +20,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // Utils
 import { fetcher } from "@/utils/fetcher";
 
+
+
 export default function Nav() {
-  /*const [globalVars, setGlobalVars] = useState([]);
-
-  async function getGlobalVars() {
-    const resp = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/global?populate[navbar][populate]=*&populate[navbar][navbarLogo][populate]=images`);
-    setGlobalVars(resp.data.attributes);
-  }
-
-  useEffect(() => {
-    getGlobalVars();
-    console.log(globalVars);
-  }, []);*/
-
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -99,7 +89,7 @@ export default function Nav() {
                 Home
               </Link>
               <Link
-                href={`/`}
+                href={`/about`}
                 className="Menu-Item / block text-3xl font-headings font-medium text-neutrals-100 tracking-tight"
               >
                 <span className="Number / text-sm font-normal text-prim-500 pr-3">
@@ -202,7 +192,7 @@ export default function Nav() {
               Home
             </Link>
             <Link
-              href={`/`}
+              href={`/about`}
               className="Menu-Item / block text-xl font-headings font-semibold text-neutrals-1100 tracking-tight / hover:text-prim-500 / lg:text-2xl"
             >
               <span className="Number / text-sm font-normal text-prim-500 pr-3">
