@@ -1,11 +1,15 @@
 "use client";
 
-// React
+// React & Next.js
 import { useState, useEffect } from "react";
+import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 
 // Utils
 import { fetcher } from "@/utils/fetcher";
 import { sectionRenderer } from "@/utils/section-renderer";
+
+// Components
+import Custom404 from "../404";
 
 
 

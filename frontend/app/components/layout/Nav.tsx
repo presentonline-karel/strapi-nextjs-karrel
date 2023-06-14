@@ -98,7 +98,7 @@ export default function Nav() {
                 About
               </Link>
               <Link
-                href={`/`}
+                href={`/blog`}
                 className="Menu-Item / block text-3xl font-headings font-medium text-neutrals-100 tracking-tight"
               >
                 <span className="Number / text-sm font-normal text-prim-500 pr-3">
@@ -107,7 +107,7 @@ export default function Nav() {
                 Blog
               </Link>
               <Link
-                href={`/`}
+                href={`/contact`}
                 className="Menu-Item / block text-3xl font-headings font-medium text-neutrals-100 tracking-tight"
               >
                 <span className="Number / text-sm font-normal text-prim-500 pr-3">
@@ -201,7 +201,7 @@ export default function Nav() {
               About
             </Link>
             <Link
-              href={`/`}
+              href={`/blog`}
               className="Menu-Item / block text-xl font-headings font-semibold text-neutrals-1100 tracking-tight / hover:text-prim-500 / lg:text-2xl"
             >
               <span className="Number / text-sm font-normal text-prim-500 pr-3">
@@ -210,7 +210,7 @@ export default function Nav() {
               Blog
             </Link>
             <Link
-              href={`/`}
+              href={`/contact`}
               className="Menu-Item / block text-xl font-headings font-semibold text-neutrals-1100 tracking-tight / hover:text-prim-500 / lg:text-2xl"
             >
               <span className="Number / text-sm font-normal text-prim-500 pr-3">

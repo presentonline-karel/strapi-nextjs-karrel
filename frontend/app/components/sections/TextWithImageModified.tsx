@@ -16,9 +16,9 @@ export default function TextWithImageModified({ data }: TextImageModifiedProps) 
   const imgUrl = getStrapiMedia(data.image.data.attributes.url);
 
   return (
-    <div className="TextWithImage section / bg-neutrals-100 / lg:p-0">
+    <div className="TextWithImage section / bg-neutrals-200 / lg:p-0">
       <div className="Container / px-4 flex flex-col gap-10 / sm:px-12 / md:flex-row-reverse md:items-center md:gap-12 md:justify-end / lg:p-[120px] lg:gap-[102px] / xl:max-w-[1440px] xl:mx-auto xl:border-x-[0.4px] xl:border-neutrals-400">
-        <div className="Text / xl:max-w-[510px]">
+        <div className="Text / md:max-w-[510px]">
           <div className="section__label">{data.label}</div>
           <h2 className="h h2 / mb-4 / xl:mb-6 ">{data.title}</h2>
           <p className="p mb-6 / xl:mb-10">{data.text}</p>
