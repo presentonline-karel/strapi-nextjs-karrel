@@ -58,7 +58,7 @@
 
   /* Tags */
   .tag {
-    @apply inline-block text-sm leading-[14px] font-headings text-prim-600 bg-prim-100 rounded-full border-[0.4px] border-prim-300 px-3 py-2 tracking-tight;
+    @apply inline-block text-sm leading-[14px] font-headings text-prim-600 bg-prim-100 rounded-full border-[0.4px] border-prim-300 px-3 py-2 tracking-tight font-medium;
   }
 
   /* Sections */

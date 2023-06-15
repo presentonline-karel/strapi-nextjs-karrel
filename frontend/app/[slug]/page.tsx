@@ -2,24 +2,24 @@
 
 // React & Next.js
 import { useState, useEffect } from "react";
-import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
+//import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 
 // Utils
 import { fetcher } from "@/utils/fetcher";
 import { sectionRenderer } from "@/utils/section-renderer";
 
 // Components
-import Custom404 from "../404";
+//import Custom404 from "../404";
 
-// Types
+/* Types
 import { HeroProps } from "@/types/sections/Hero";
 import { SkillProps } from "@/types/Skill";
 import { HeaderProps } from "@/types/sections/Header";
 import { TextImageProps } from "@/types/sections/TextImage";
 import { TextImageModifiedProps } from "@/types/sections/TextImageModified";
-import { CtaProps } from "@/types/sections/Cta";
+import { CtaProps } from "@/types/sections/Cta";*/
 
-type DynamicPage = {
+/*type DynamicPage = {
   data: {
     id: number;
     attributes: {
@@ -27,7 +27,7 @@ type DynamicPage = {
       slug: string;
     },
   },
-}
+}*/
 
 
 

@@ -1,13 +1,74 @@
-import Blogpost from "../organisms/Blogpost"
+"use client";
+
+// React
+import { useState, useEffect } from "react";
+
+// Utils
+import { fetcher } from "@/utils/fetcher";
+
+// Components
+import Blogpost from "../organisms/Blogpost";
+import { BlogpostProps } from "@/types/Blogpost";
+
+
 
 export default function BlogPosts() {
+
+  // States
+  const [blogposts, setBlogposts] = useState([]);
+
+  // Qs
+  const qs = require("qs");
+
+  // Get blogposts function
+  async function getBlogposts() {
+    const queryParams = () => qs.stringify(
+      {
+        populate: {
+          blocks: {
+            populate: "*",
+          },
+          category: {
+            populate: "*",
+          },
+          author: {
+            populate: "*",
+          },
+          cover: {
+            populate: "*"
+          }
+        },
+      }
+    )
+
+    const CONTENT_TYPE = "articles";
+    const BASE_URL = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${CONTENT_TYPE}?`;
+
+    const QUERY_1 = BASE_URL + queryParams();
+
+    const resp = await fetcher(QUERY_1);
+
+    //console.log(resp);
+
+    if (resp.data.length === 0) return null;
+    setBlogposts(resp.data);
+
+    //console.log(blogposts)
+  }
+
+  useEffect(() => {
+    getBlogposts();
+  }, []);
+
+
+
   return (
     <div className="Blogpost-Section / pb-14 / lg:pb-0">
       <div className="Container / px-4 flex flex-col gap-14 / sm:px-12 / md:px-0 md:max-w-[784px] md:mx-auto / lg:max-w-[834px] lg:pb-[120px] / xl:max-w-[1440px] xl:px-[222px] xl:border-x-[0.4px] xl:border-neutrals-400">
         <div className="Blogposts / flex flex-col gap-12 / sm:grid sm:grid-cols-2 sm:gap-x-6 / md:flex">
-          <Blogpost />
-          <Blogpost />
-          <Blogpost />
+          {blogposts.map((blogpost: BlogpostProps, index: number) => {
+            return <Blogpost key={index} {...blogpost} />
+          })}
         </div>
 
         <div className="Pagination / inline-flex items-center mx-auto rounded overflow-hidden border-[0.4px] border-neutrals-400">
