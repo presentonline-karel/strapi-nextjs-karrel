@@ -40,6 +40,7 @@ export default function RootRoute() {
     const QUERY_1 = BASE_URL + params();
 
     const resp = await fetcher(QUERY_1);
+    //console.log(resp);
 
     if (resp.data.length === 0) return null;
     setContentSectionsHome(resp.data.attributes.contentSections);

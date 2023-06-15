@@ -1,5 +1,5 @@
 export default function Custom404() {
-  console.log("Error component works");
+  // console.log("Error component works");
   
   return (
     <div>
