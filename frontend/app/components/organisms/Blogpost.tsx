@@ -12,7 +12,7 @@ import { BlogpostProps } from "@/types/Blogpost";
 
 export default function Blogpost(data: BlogpostProps) {
   const coverImageUrl = getStrapiMedia(data.attributes.cover.data.attributes.url);
-  const avatarImageUrl = getStrapiMedia(data.attributes.author.data.attributes.avatar.data.attributes.url)
+  const avatarImageUrl = getStrapiMedia(data.attributes.author.data.attributes.avatar.data.attributes.url);
 
   return (
     <Link href={`/blog/${data.attributes.slug}`} className="Blogpost / rounded border-[0.4px] border-neutrals-400 flex flex-col gap-6 pb-5 shadow-card overflow-hidden / md:pb-0">
@@ -32,7 +32,7 @@ export default function Blogpost(data: BlogpostProps) {
 
           <div className="Author-Desktop / items-center gap-4 hidden md:flex">
             <div className="Image / w-12 h-12 rounded relative border-[0.4px] border-neutrals-400 overflow-hidden">
-              <Image src={avatarImageUrl || ""} alt={data.attributes.author.data.attributes.avatar.data.attributes.alternativeText} fill={true} className="object-cover" />
+              <Image src={avatarImageUrl || ""} alt={data.attributes.author.data.attributes.avatar.data.attributes.alternativeText || "none provided"} fill={true} className="object-cover" />
             </div>
 
             <div>
@@ -45,7 +45,7 @@ export default function Blogpost(data: BlogpostProps) {
 
       <div className="Author-Mobile / flex items-center gap-4 px-4 / md:hidden">
         <div className="Image / w-12 h-12 rounded relative border-[0.4px] border-neutrals-400 overflow-hidden">
-          <Image src={avatarImageUrl || ""} alt={data.attributes.author.data.attributes.avatar.data.attributes.alternativeText} fill={true} className="object-cover" />
+          <Image src={avatarImageUrl || ""} alt={data.attributes.author.data.attributes.avatar.data.attributes.alternativeText || "none provided"} fill={true} className="object-cover" />
         </div>
 
         <div>
