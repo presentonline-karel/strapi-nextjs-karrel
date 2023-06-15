@@ -1,5 +1,15 @@
-export default function BlogRichText() {
+// ReactMarkDown
+import ReactMarkdown from "react-markdown";
+
+// Types
+interface BlogRichTextProps {
+  body: string;
+}
+
+
+
+export default function BlogRichText({ body }: BlogRichTextProps) {
   return (
-    <p className="p">BlogRichText</p>
+    <ReactMarkdown className="p / mb-10 / xl:mb-12">{body}</ReactMarkdown>
   )
 }

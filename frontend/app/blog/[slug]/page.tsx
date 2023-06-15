@@ -93,8 +93,8 @@ export default function BlogDetailPage({ params }: { params: { slug: string; } }
             </div>
 
             <article className="Body /">
-              <div className="Heading / mb-10">
-                <h1 className="h h1 / mb-4 / xl:text-6xl">{articleData.attributes.title}</h1>
+              <div className="Heading / mb-10 / xl:mb-12">
+                <h1 className="h h1 / mb-4 / xl:text-6xl xl:mb-6">{articleData.attributes.title}</h1>
                 <p className="Description p /">{articleData.attributes.description}</p>
               </div>
 

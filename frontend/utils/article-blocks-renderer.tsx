@@ -10,10 +10,10 @@ export function articleBlocksRenderer(block: any, index: number) {
     case "shared.media":
       return <BlogImage key={index} data={block.file.data} />;
     case "shared.subtitle":
-      //console.log(block);
-      return <BlogSubtitle key={index} data={block.title} />;
+      return <BlogSubtitle key={index} {...block} />;
     case "shared.rich-text":
-      return <BlogRichText key={index} />;
+      console.log(block);
+      return <BlogRichText key={index} {...block} />;
     default:
       return <div key={index} className="bg-red-200">No data</div>;
   }
