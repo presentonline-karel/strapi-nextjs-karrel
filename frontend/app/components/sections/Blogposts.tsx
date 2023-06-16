@@ -48,12 +48,8 @@ export default function BlogPosts() {
 
     const resp = await fetcher(QUERY_1);
 
-    //console.log(resp);
-
     if (resp.data.length === 0) return null;
     setBlogposts(resp.data);
-
-    //console.log(blogposts)
   }
 
   useEffect(() => {

@@ -12,7 +12,6 @@ export function articleBlocksRenderer(block: any, index: number) {
     case "shared.subtitle":
       return <BlogSubtitle key={index} {...block} />;
     case "shared.rich-text":
-      console.log(block);
       return <BlogRichText key={index} {...block} />;
     default:
       return <div key={index} className="bg-red-200">No data</div>;

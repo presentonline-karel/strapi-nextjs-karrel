@@ -12,9 +12,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // Utils
 import { fetcher } from "@/utils/fetcher";
 import { articleBlocksRenderer } from "@/utils/article-blocks-renderer";
+import { formatMyDate } from "@/utils/date-formatter";
 
 // Components
 import RelatedArticles from "@/app/components/sections/RelatedArticles";
+
+// Types
 import { BlogpostProps } from "@/types/Blogpost";
 
 
@@ -27,6 +30,7 @@ export default function BlogDetailPage({ params }: { params: { slug: string; } }
   const [slug, setSlug] = useState(articleSlug);
   const [articleData, setArticleData] = useState<BlogpostProps>();
   const [articleBlocks, setArticleBlocks] = useState([]);
+  const [relatedArticles, setRelatedArticles] = useState([]);
 
   // Qs
   const qs = require("qs");
@@ -48,6 +52,9 @@ export default function BlogDetailPage({ params }: { params: { slug: string; } }
           },
           cover: {
             populate: "*"
+          },
+          articles: {
+            populate: "*"
           }
         }
       }
@@ -60,13 +67,11 @@ export default function BlogDetailPage({ params }: { params: { slug: string; } }
 
     const resp = await fetcher(QUERY_1);
 
-    //console.log(resp);
-
     if (resp.data.length === 0) return null;
 
     setArticleBlocks(resp.data[0].attributes.blocks);
-    //console.log(articleBlocks);
     setArticleData(resp.data[0]);
+    setRelatedArticles(resp.data[0].attributes.articles.data);
   }
 
   useEffect(() => {
@@ -87,7 +92,7 @@ export default function BlogDetailPage({ params }: { params: { slug: string; } }
               </Link>
 
               <div className="Meta / flex items-center gap-4 / lg:gap-5">
-                <div className="Date / font-headings text-base leading-6 text-neutrals-800 font-medium">Mar 16, 2020</div>
+                <div className="Date / font-headings text-base leading-6 text-neutrals-800 font-medium">{formatMyDate(articleData.attributes.createdAt)}</div>
                 <div className="tag">{articleData.attributes.category.data.attributes.name}</div>
               </div>
             </div>
@@ -98,30 +103,13 @@ export default function BlogDetailPage({ params }: { params: { slug: string; } }
                 <p className="Description p /">{articleData.attributes.description}</p>
               </div>
 
-              {/*
-              <div className="Image / relative w-full aspect-[3/2] rounded overflow-hidden border-[0.4px] border-neutrals-400 shadow-card mb-10">
-                <Image src="/Karrel-Aboutt-Hero-Img.jpg" alt="Test" fill={true} className="object-cover" />
-              </div>
-
-              <h2 className="h h2 / xl:text-4xl">How you can boost your conversion rate via our tips now</h2>
-
-              <p className="p / mb-10">Mauris consectetur magna dictum libero porta, et venenatis tortor posuere. Class aptent taciti sociosqu ad litora torquent per conubia.</p>
-
-              <div className="Image / relative w-full aspect-[3/2] rounded overflow-hidden border-[0.4px] border-neutrals-400 shadow-card mb-10">
-                <Image src="/Karrel-Aboutt-Hero-Img.jpg" alt="Test" fill={true} className="object-cover" />
-              </div>
-
-              <h2 className="h h2 / xl:text-4xl">How you can boost your conversion rate via our tips now</h2>
-
-      <p className="p">Mauris consectetur magna dictum libero porta, et venenatis tortor posuere. Class aptent taciti sociosqu ad litora torquent per conubia.</p>*/}
-            
-                {articleBlocks.map((block: any, index: number) => articleBlocksRenderer(block, index))}
-              </article>
+              {articleBlocks.map((block: any, index: number) => articleBlocksRenderer(block, index))}
+            </article>
           </div>
         </section>
       )}
 
-      <RelatedArticles />
+      <RelatedArticles data={relatedArticles} />
       {/* <Cta /> */}
     </>
   )

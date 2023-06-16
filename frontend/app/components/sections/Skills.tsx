@@ -6,6 +6,8 @@ import Skill from "../organisms/Skill";
 
 
 export default function Skills({ data }: SkillsProps) {
+  console.log(data.skills);
+
   return (
     <div className="Skills / py-14 bg-neutrals-200 / lg:py-0">
       <div className="Container / px-4 / sm:px-12 / lg:p-[120px] / xl:border-x-[0.4px] xl:border-neutrals-400 xl:max-w-[1440px] xl:mx-auto">
