@@ -18,12 +18,69 @@ import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // Utils
-import { fetcher } from "@/utils/fetcher";
+import { fetcher, getStrapiMedia } from "@/utils/fetcher";
+
+// Types
+import { NavbarProps } from "@/types/layout/Nav";
 
 
 
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [navData, setNavData] = useState<NavbarProps>([]);
+
+  // Qs
+  const qs = require("qs");
+
+  async function getNavBar() {
+    const queryParams = () => qs.stringify(
+      {
+        populate: {
+          navbar: {
+            populate: {
+              navbarLogo: {
+                populate: "*"
+              },
+              links: {
+                populate: "*"
+              },
+            },
+          },
+          footer: {
+            populate: {
+              footerLogo: {
+                populate: "*"
+              }
+            }
+          }
+        }
+      }
+    )
+
+    const CONTENT_TYPE = "global";
+    const BASE_URL = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${CONTENT_TYPE}?`;
+
+    const QUERY_1 = BASE_URL + queryParams();
+
+    const resp = await fetcher(QUERY_1);
+    console.log(resp);
+
+    if (resp.data.length === 0) return null;
+
+    setNavData(resp);
+  }
+
+  // Execute function
+  useEffect(() => {
+    getNavBar();
+  }, []);
+
+  // Utils
+  //const darkLogoUrl = getStrapiMedia(navData.data.attributes.navbar.navbarLogo.logoImg.data.attributes.url);
+  //const brightLogoUrl = getStrapiMedia(navData.data.attributes.footer.footerLogo.logoImg.data.attributes.url);
+  //console.log(navData);
+
+
 
   return (
     <nav className="Nav / md:border-neutrals-400">
@@ -36,8 +93,8 @@ export default function Nav() {
           <Link href={`/`}>
             <div className="Logo / relative w-[102px] h-[40px] / xl:w-[164px] xl:h-[64px]">
               <Image
-                src="/Karrel-Logo-Dark.png"
-                alt="Karrel logo"
+                src={/*darkLogoUrl ||*/ ""}
+                alt={/*navData.data.attributes.navbar.navbarLogo.logoImg.data.attributes.alternativeText ||*/ "none provided"}
                 fill={true}
               />
             </div>
@@ -55,17 +112,16 @@ export default function Nav() {
 
         {/* Sliding nav */}
         <div
-          className={`Sliding-Nav / ${
-            menuOpen
-              ? "translate-x-0"
-              : "translate-x-[271px] sm:translate-x-[384px]"
-          } / fixed top-0 right-0 w-[271px] h-full bg-neutrals-1000 py-5 px-4 rounded-tl rounded-bl flex flex-col justify-between shadow-card z-10 / sm:py-8 sm:w-[384px] sm:px-12`}
+          className={`Sliding-Nav / ${menuOpen
+            ? "translate-x-0"
+            : "translate-x-[271px] sm:translate-x-[384px]"
+            } / fixed top-0 right-0 w-[271px] h-full bg-neutrals-1000 py-5 px-4 rounded-tl rounded-bl flex flex-col justify-between shadow-card z-10 / sm:py-8 sm:w-[384px] sm:px-12`}
         >
           <div className="Top /">
             <div className="Header / flex justify-between items-center mb-16">
               <Image
-                src="/Karrel-Logo-Light.png"
-                alt="Karrel logo"
+                src={/*brightLogoUrl ||*/ ""}
+                alt={/*navData.data.attributes.footer.footerLogo.logoImg.data.attributes.url ||*/ ""}
                 width={102}
                 height={40}
               />
