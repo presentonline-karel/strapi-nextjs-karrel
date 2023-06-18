@@ -1,7 +1,7 @@
 // Imported types
 import { LinkProps } from "next/link";
 import { Picture } from "../Picture";
-import { Social } from "../Platform";
+import { Platform } from "../Platform";
 
 
 
@@ -31,7 +31,7 @@ export interface NavbarProps {
 				phone: string;
 			};
 			copyrightText: string;
-			socials: Social[];
+			socials: Platform[];
 		};
 	};
 }
