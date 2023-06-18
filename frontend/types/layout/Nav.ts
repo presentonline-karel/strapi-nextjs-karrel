@@ -1,5 +1,7 @@
 // Imported types
 import { LinkProps } from "next/link";
+import { Picture } from "../Picture";
+import { Social } from "../Platform";
 
 
 
@@ -8,16 +10,9 @@ export interface NavbarProps {
 		attributes: {
 			navbar: {
 				navbarLogo: {
-					logoImg: {
-						data: {
-							attributes: {
-								url: string;
-								alternativeText: string;
-							};
-						};
-					};
-				},
-				links: LinkProps[],
+					logoImg: Picture;
+				};
+				links: LinkProps[];
 			};
 			footer: {
 				footerLogo: {
@@ -31,6 +26,12 @@ export interface NavbarProps {
 					};
 				};
 			};
+			contactInfo: {
+				email: string;
+				phone: string;
+			};
+			copyrightText: string;
+			socials: Social[];
 		};
 	};
 }

@@ -1,4 +1,4 @@
-export interface LinkProps {
+export interface LinkType {
     id: string;
 	url: string;
 	text: string;

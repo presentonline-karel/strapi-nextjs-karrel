@@ -39,6 +39,20 @@
       "type": "component",
       "repeatable": false,
       "component": "layout.footer"
+    },
+    "contactInfo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "others.contact-info"
+    },
+    "copyrightText": {
+      "type": "string"
+    },
+    "socials": {
+      "displayName": "Socials",
+      "type": "component",
+      "repeatable": true,
+      "component": "others.socials"
     }
   }
 }

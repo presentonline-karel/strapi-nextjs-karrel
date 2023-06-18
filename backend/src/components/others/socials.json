@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_others_socials",
+  "info": {
+    "displayName": "Socials"
+  },
+  "options": {},
+  "attributes": {
+    "platform": {
+      "type": "enumeration",
+      "enum": [
+        "instagram",
+        "facebook",
+        "linkedin",
+        "twitter"
+      ],
+      "required": true,
+      "default": "instagram"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}
