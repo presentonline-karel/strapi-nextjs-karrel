@@ -21,6 +21,9 @@ import { NavbarProps } from "@/types/layout/Nav";
 import { LinkType } from "@/types/Link";
 import { Platform } from "@/types/Platform";
 
+// Components
+import ProgressBar from "@/app/components/blog/ProgressBar";
+
 
 
 export default function Nav() {
@@ -85,8 +88,7 @@ export default function Nav() {
   return (
     <>
       {navData != null && (
-        //fixed top-0 left-0 w-full z-10 bg-neutrals-100
-        <nav className="Nav /  / md:border-neutrals-400">
+        <nav className="Nav / fixed top-0 left-0 w-full z-10 bg-neutrals-100 / md:border-neutrals-400">
 
           {/* Container */}
           <div className="Container / py-5 px-4 / sm:px-12 sm:py-8 / md:flex md:justify-between md:items-center md:py-8 md:px-12 md:border-b-[0.4px] / lg:py-10 lg:px-[120px] / xl:max-w-[1440px] xl:mx-auto xl:border-x-[0.4px] xl:border-neutrals-400">
@@ -234,6 +236,8 @@ export default function Nav() {
               {navData.data.attributes.contactInfo.email}
             </Link>
           </div>
+
+          <ProgressBar />
         </nav>
       )}
     </>

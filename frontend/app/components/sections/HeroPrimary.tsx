@@ -16,7 +16,7 @@ export default function HeroPrimary({ data }: HeroProps) {
   const imgUrl = getStrapiMedia(data.image.data.attributes.url);
 
   return (
-    <div className="Hero-Primary section / bg-neutrals-100 relative top-20 z-0 / md:py-0">
+    <div className="Hero-Primary section / pt-[136px] bg-neutrals-100 relative z-0 / sm:pt-40 / md:pt-[104px] md:pb-0 / lg:pt-[121px] / xl:pt-[144px]">
       <div className="Container / flex flex-col gap-10 px-4 / sm:px-12 sm:gap-16 / md:p-0 md:flex-row md:gap-12 md:items-center / lg:gap-[102px] / xl:border-x-[0.4px] xl:border-neutrals-400 xl:max-w-[1440px] xl:mx-auto">
         <div className="Text / md:w-1/2 md:pl-12 / lg:pl-[120px]">
           <div className="section__label">{data.label}</div>
