@@ -3,31 +3,14 @@
 // React & Next.js
 import { useState, useEffect } from "react";
 //import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
+import Head from 'next/head'
 
 // Utils
 import { fetcher } from "@/utils/fetcher";
 import { sectionRenderer } from "@/utils/section-renderer";
 
-// Components
-//import Custom404 from "../404";
-
-/* Types
-import { HeroProps } from "@/types/sections/Hero";
-import { SkillProps } from "@/types/Skill";
-import { HeaderProps } from "@/types/sections/Header";
-import { TextImageProps } from "@/types/sections/TextImage";
-import { TextImageModifiedProps } from "@/types/sections/TextImageModified";
-import { CtaProps } from "@/types/sections/Cta";*/
-
-/*type DynamicPage = {
-  data: {
-    id: number;
-    attributes: {
-      contentSections: (HeroProps | HeaderProps | SkillProps | TextImageProps | TextImageModifiedProps | CtaProps)[],
-      slug: string;
-    },
-  },
-}*/
+// Types
+import { MetaDataProps } from "@/types/MetaData";
 
 
 
@@ -36,6 +19,7 @@ export default function Page({ params }: { params: { slug: string; } }) {
   // State
   const [slug, setSlug] = useState(params.slug !== "" ? params.slug : "");
   const [contentSections, setContentSections] = useState([]);
+  const [metaData, setMetaData] = useState<MetaDataProps>();
 
 
   // Qs
@@ -53,6 +37,9 @@ export default function Page({ params }: { params: { slug: string; } }) {
           contentSections: {
             populate: "*",
           },
+          metadata: {
+            populate: "*",
+          }
         },
       }
     )
@@ -63,9 +50,12 @@ export default function Page({ params }: { params: { slug: string; } }) {
     const QUERY_1 = BASE_URL + queryParams();
 
     const resp = await fetcher(QUERY_1);
+    console.log("resp", resp);
 
     if (resp.data.length === 0) return null;
     setContentSections(resp.data[0].attributes.contentSections);
+    setMetaData(resp.data[0].attributes.metadata);
+    console.log("respmeta", resp.data[0].attributes.metadata);
   }
 
   useEffect(() => {
@@ -74,67 +64,27 @@ export default function Page({ params }: { params: { slug: string; } }) {
 
 
 
+  /*return (
+    <>
+      {console.log("meta", metaData)}
+      <Head>
+        {metaData != null && (
+          <>
+            <meta property="og:title" content={metaData.metaTitle} key="title" />
+            <meta name="og:description" content={metaData.metaDescription} key="description" />
+          </>
+        )}
+        {metaData == null && (
+          <>
+            <meta property="og:title" content="Karel Decoene - Creative Technologist - Portfolio Website" key="title" />
+            <meta name="og:description" content="Hi, I'm Karel and I'm a creative technologist focused on web development/design. Welcome to my portfolio website." key="description" />
+          </>
+        )}
+      </Head>
+
+      {contentSections.map((section: any, index: number) => sectionRenderer(section, index))};
+    </>
+  );*/
+
   return contentSections.map((section: any, index: number) => sectionRenderer(section, index));
 }
-
-
-/*export default function Page( dynamicPage: DynamicPage) {
-  //console.log(dynamicPage);
-
-  return (
-    <div className="Test /">
-      <h1>Test</h1>
-    </div>
-  )
-}*/
-
-
-
-// Function runs on every request
-/*export const getServerSideProps: GetServerSideProps<{ dynamicPage: DynamicPage }> = async (context) => {
-
-  // Qs
-  const qs = require("qs");
-
-  const queryParams = () => qs.stringify(
-    {
-      filters: {
-        slug: {
-          $eq: `/${context.req.url}`,
-        }
-      },
-      populate: {
-        contentSections: {
-          populate: "*",
-        },
-      },
-    }
-  )
-
-  const CONTENT_TYPE = "pages";
-  const BASE_URL = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${CONTENT_TYPE}?`;
-
-  const QUERY_1 = BASE_URL + queryParams();
-
-  const resp = await fetcher(QUERY_1);
-  const dynamicPage = resp.data[0].attributes.contentSections;
-
-  // Return the data as props
-  return {
-    props: {
-      dynamicPage
-    },
-  };
-};
-
-
-
-export default function Page({ dynamicPage }: InferGetServerSidePropsType<typeof getServerSideProps>) {
-  //console.log(dynamicPage);
-  
-  return (
-    <div className="Test">
-      <h1>Test</h1>
-    </div>
-  )
-}*/

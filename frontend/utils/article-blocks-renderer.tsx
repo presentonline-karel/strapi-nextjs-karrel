@@ -1,7 +1,7 @@
 // Blog components
-import BlogImage from "@/app/components/blog/blogImage";
-import BlogSubtitle from "@/app/components/blog/blogSubtitle";
-import BlogRichText from "@/app/components/blog/blogRichText";
+import BlogImage from "@/app/components/blog/BlogImage";
+import BlogSubtitle from "@/app/components/blog/BlogSubtitle";
+import BlogRichText from "@/app/components/blog/BlogRichText";
 
 
 

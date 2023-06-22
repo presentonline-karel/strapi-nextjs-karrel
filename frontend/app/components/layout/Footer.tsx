@@ -14,6 +14,7 @@ import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 // Utils
 import { fetcher, getStrapiMedia } from "@/utils/fetcher";
 import { renderPlatformIcon } from "@/utils/render-platform-icon";
+import { scrollToTop } from "@/utils/scroll-to-top";
 
 // Types
 import { FooterProps } from "@/types/layout/Footer";
@@ -90,7 +91,7 @@ export default function Footer() {
 
                 <div className="Socials / flex items-center gap-6 / xl:gap-8">
                   {footerData.data.attributes.socials.map((platform: Platform, index: number) => (
-                    <Link href={`${platform.url}`} target="_blank">
+                    <Link href={`${platform.url}`} target="_blank" key={index}>
                       <FontAwesomeIcon
                         icon={renderPlatformIcon(platform.platform)}
                         className="Social / text-2xl text-neutrals-100 / xl:text-3xl xl:leading-8"
@@ -109,6 +110,7 @@ export default function Footer() {
                       <Link
                         href={`${link.url}`}
                         className="block font-headings text-base leading-6 text-neutrals-200 whitespace-nowrap / xl:text-xl xl:leading-7"
+                        key={index}
                       >
                         {link.text}
                       </Link>
@@ -124,6 +126,7 @@ export default function Footer() {
                       <Link
                         href={`${link.url}`}
                         className="block font-headings text-base leading-6 text-neutrals-200 whitespace-nowrap / xl:text-xl xl:leading-7"
+                        key={index}
                       >
                         {link.text}
                       </Link>
@@ -137,9 +140,8 @@ export default function Footer() {
               <p className="p / text-neutrals-400 / xl:text-base xl:leading-6">{footerData.data.attributes.copyrightText}</p>
             </div>
 
-            <Link href={`#`} className="absolute top-2 right-4 / sm:right-12 / lg:right-[120px] lg:top-20">
-              <FontAwesomeIcon icon={faArrowUp} className="text-neutrals-100 text-2xl leading-6 / xl:text-3xl xl:leading-8" />
-            </Link>
+            {/* Scroll to top page */}
+            <FontAwesomeIcon onClick={scrollToTop} icon={faArrowUp} className="absolute text-neutrals-100 text-2xl leading-6 top-2 right-4 cursor-pointer / sm:right-12 / lg:right-[120px] lg:top-20 / xl:text-3xl xl:leading-8" />
           </div>
         </footer>
       )}

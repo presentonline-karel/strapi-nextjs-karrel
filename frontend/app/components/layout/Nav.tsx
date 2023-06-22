@@ -3,6 +3,7 @@
 // Next
 import Image from "next/image";
 import Link, { LinkProps } from "next/link";
+import { usePathname } from "next/navigation";
 
 // React
 import { useState, useEffect } from "react";
@@ -25,6 +26,9 @@ import { Platform } from "@/types/Platform";
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [navData, setNavData] = useState<NavbarProps>();
+
+  // Active menu item
+  const pathname = usePathname();
 
   // Qs
   const qs = require("qs");
@@ -81,7 +85,8 @@ export default function Nav() {
   return (
     <>
       {navData != null && (
-        <nav className="Nav / md:border-neutrals-400">
+        //fixed top-0 left-0 w-full z-10 bg-neutrals-100
+        <nav className="Nav /  / md:border-neutrals-400">
 
           {/* Container */}
           <div className="Container / py-5 px-4 / sm:px-12 sm:py-8 / md:flex md:justify-between md:items-center md:py-8 md:px-12 md:border-b-[0.4px] / lg:py-10 lg:px-[120px] / xl:max-w-[1440px] xl:mx-auto xl:border-x-[0.4px] xl:border-neutrals-400">
@@ -94,6 +99,7 @@ export default function Nav() {
                     src={getStrapiMedia(navData.data.attributes.navbar.navbarLogo.logoImg.data.attributes.url) || ""}
                     alt={navData.data.attributes.navbar.navbarLogo.logoImg.data.attributes.alternativeText || "none provided"}
                     fill={true}
+                    onClick={() => setMenuOpen(false)}
                   />
                 </div>
               </Link>
@@ -122,6 +128,7 @@ export default function Nav() {
                     alt={navData.data.attributes.footer.footerLogo.logoImg.data.attributes.url || ""}
                     width={102}
                     height={40}
+                    onClick={() => setMenuOpen(false)}
                   />
                   <Image
                     onClick={() => setMenuOpen(false)}
@@ -136,7 +143,9 @@ export default function Nav() {
                   {navData.data.attributes.navbar.links.map((link: any, index: number) => (
                     <Link
                       href={`${link.url}`}
-                      className="Menu-Item / block text-3xl font-headings font-medium text-neutrals-100 tracking-tight"
+                      className={`Menu-Item / ${pathname == link.url ? "text-prim-500" : ""} block text-3xl font-headings font-medium text-neutrals-100 tracking-tight`}
+                      onClick={() => setMenuOpen(false)}
+                      key={index}
                     >
                       <span className="Number / text-sm font-normal text-prim-500 pr-3">
                         0{index + 1}.
@@ -156,7 +165,7 @@ export default function Nav() {
 
                   <div className="Socials / pl-[34px] flex items-center gap-6">
                     {navData.data.attributes.socials.map((platform: Platform, index: number) => (
-                      <Link href={`${platform.url}`} target="_blank">
+                      <Link href={`${platform.url}`} target="_blank" key={index}>
                         <FontAwesomeIcon
                           icon={renderPlatformIcon(platform.platform)}
                           className="Social / text-2xl text-neutrals-100"
@@ -201,9 +210,10 @@ export default function Nav() {
                 {navData.data.attributes.navbar.links.map((link: any, index: number) => (
                   <Link
                     href={`${link.url}`}
-                    className="Menu-Item / block text-xl font-headings font-semibold text-neutrals-1100 tracking-tight / hover:text-prim-500 / lg:text-2xl"
+                    className={`Menu-Item / ${pathname == link.url ? "text-prim-600" : ""} block text-xl font-headings font-semibold text-neutrals-1100 tracking-tight / hover:text-prim-500 / lg:text-2xl`}
+                    key={index}
                   >
-                    <span className="Number / text-sm font-normal text-prim-500 pr-3">
+                    <span className="Number / text-sm font-normal text-prim-600 pr-3">
                       0{index + 1}.
                     </span>
                     {link.text}

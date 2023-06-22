@@ -1,7 +1,8 @@
 "use client";
 
-// React
+// React / Next
 import { useState, useEffect } from "react";
+import { Metadata } from "next";
 
 // Utils
 import { fetcher } from "@/utils/fetcher";
@@ -40,7 +41,6 @@ export default function RootRoute() {
     const QUERY_1 = BASE_URL + params();
 
     const resp = await fetcher(QUERY_1);
-    //console.log(resp);
 
     if (resp.data.length === 0) return null;
     setContentSectionsHome(resp.data.attributes.contentSections);

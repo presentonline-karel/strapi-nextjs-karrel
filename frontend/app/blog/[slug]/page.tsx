@@ -19,6 +19,7 @@ import RelatedArticles from "@/app/components/sections/RelatedArticles";
 
 // Types
 import { BlogpostProps } from "@/types/Blogpost";
+import ProgressBar from "@/app/components/blog/ProgressBar";
 
 
 
@@ -81,7 +82,8 @@ export default function BlogDetailPage({ params }: { params: { slug: string; } }
 
 
   return (
-    <>
+    <div className="relative">
+      <ProgressBar />
       {articleData != null && (
         <section className="Article / py-14 / lg:pt-20 lg:pb-[120px] / xl:!py-0">
           <div className="Container / px-4 / sm:px-12 / md:px-0 md:max-w-[588px] md:mx-auto / xl:pt-20 xl:pb-[120px] xl:max-w-[1440px] xl:border-x-[0.4px] xl:border-neutrals-400 xl:px-[426px]">
@@ -111,6 +113,6 @@ export default function BlogDetailPage({ params }: { params: { slug: string; } }
 
       <RelatedArticles data={relatedArticles} />
       {/* <Cta /> */}
-    </>
+    </div>
   )
 }
