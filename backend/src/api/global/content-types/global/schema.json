@@ -53,6 +53,9 @@
       "type": "component",
       "repeatable": true,
       "component": "others.socials"
+    },
+    "companyText": {
+      "type": "string"
     }
   }
 }
