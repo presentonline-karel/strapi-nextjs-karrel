@@ -31,11 +31,10 @@ export const metadata = {
 
 
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({children,}: {children: React.ReactNode;}) {
+  const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
+  if (!token) throw new Error("The Strapi API Token environment variable is not set.");
+  
   return (
     <html
       lang="en"
