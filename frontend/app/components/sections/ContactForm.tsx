@@ -53,7 +53,7 @@ export default function ContactForm() {
         .then(parseJSON);
     } catch (error) {
       //setErrorRestaurants(error);
-      console.log("Error!");
+      //console.log("Error!");
     }
   }
 
@@ -82,8 +82,8 @@ export default function ContactForm() {
     }),
 
     onSubmit: (values) => {
-      console.log("form submitted");
-      console.log(values);
+      //console.log("form submitted");
+      //console.log(values);
       handleRequestSubmit(values);
     },
   });

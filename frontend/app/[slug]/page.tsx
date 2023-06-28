@@ -50,12 +50,12 @@ export default function Page({ params }: { params: { slug: string; } }) {
     const QUERY_1 = BASE_URL + queryParams();
 
     const resp = await fetcher(QUERY_1);
-    console.log("resp", resp);
+    //console.log("resp", resp);
 
     if (resp.data.length === 0) return null;
     setContentSections(resp.data[0].attributes.contentSections);
     setMetaData(resp.data[0].attributes.metadata);
-    console.log("respmeta", resp.data[0].attributes.metadata);
+    //console.log("respmeta", resp.data[0].attributes.metadata);
   }
 
   useEffect(() => {
