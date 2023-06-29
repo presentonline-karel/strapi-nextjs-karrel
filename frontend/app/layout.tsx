@@ -24,10 +24,10 @@ const poppins = Poppins({
 
 
 
-export const metadata = {
+/*export const metadata = {
   title: "Karel Decoene - Creative Technologist - Portfolio Website",
   description: "Hi, I'm Karel and I'm a creative technologist focused on web development/design. Welcome to my portfolio website.",
-};
+};*/
 
 
 
@@ -43,6 +43,8 @@ export default function RootLayout({ children, }: { children: React.ReactNode; }
       <body id="body" className="w-full overflow-x-hidden">
         <Nav />
         {children}
+
+        {/* @ts-expect-error Server Component */}
         <Footer />
       </body>
     </html>

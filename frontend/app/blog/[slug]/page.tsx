@@ -1,6 +1,7 @@
 // React & Next.js
 import Link from "next/link";
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 // FontAwesome
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
@@ -43,7 +44,7 @@ export async function generateMetadata({ params, }: { params: { slug: string }; 
   const QUERY_1 = BASE_URL + queryParams();
   const resp = await fetcher(QUERY_1);
 
-  if(!resp.data[0].attributes.seo.metaTitle || !resp.data[0].attributes.seo.metaDescription) return FALLBACK_SEO;
+  if(resp.data[0] == null || !resp.data[0].attributes.seo.metaTitle || !resp.data[0].attributes.seo.metaDescription) return FALLBACK_SEO;
 
   return {
     title: resp.data[0].attributes.seo.metaTitle,
@@ -88,7 +89,9 @@ export default async function BlogDetailPage({ params, }: { params: { slug: stri
   const QUERY_1 = BASE_URL + queryParams();
   const resp = await fetcher(QUERY_1);
 
-  if (resp.data.length === 0) return null;
+  if (!resp.data[0] || resp.data[0].length === 0) {
+    notFound();
+  }
 
 
 

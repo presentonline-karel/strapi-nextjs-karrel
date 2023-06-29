@@ -1,5 +1,6 @@
 // Next & React
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 // Utils
 import { fetcher } from "@/utils/fetcher";
@@ -32,7 +33,7 @@ export async function generateMetadata({ params, }: { params: { slug: string }; 
   const QUERY_1 = BASE_URL + queryParams();
   const resp = await fetcher(QUERY_1);
 
-  if(!resp.data[0].attributes.metadata.metaTitle || !resp.data[0].attributes.metadata.metaDescription) return FALLBACK_SEO;
+  if(resp.data[0] == null || !resp.data[0].attributes.metadata.metaTitle || !resp.data[0].attributes.metadata.metaDescription) return FALLBACK_SEO;
 
   return {
     title: resp.data[0].attributes.metadata.metaTitle,
@@ -68,7 +69,9 @@ export default async function Page({ params }: { params: { slug: string; } }) {
   const QUERY_1 = BASE_URL + queryParams();
   const resp = await fetcher(QUERY_1);
 
-  if (resp.data.length === 0) return null;
+  if (resp.data.length === 0) {
+    notFound();
+  }
 
 
 

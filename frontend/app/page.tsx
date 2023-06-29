@@ -1,5 +1,6 @@
 // Next
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 // Utils
 import { fetcher } from "@/utils/fetcher";
@@ -35,7 +36,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const QUERY_1 = BASE_URL + params();
   const resp = await fetcher(QUERY_1);
 
-  if(!resp.data.attributes.metadata.metaTitle || !resp.data.attributes.metadata.metaDescription) return FALLBACK_SEO;
+  if(!resp.data || !resp.data.attributes.metadata.metaTitle || !resp.data.attributes.metadata.metaDescription) return FALLBACK_SEO;
 
   return {
     title: resp.data.attributes.metadata.metaTitle,
@@ -69,7 +70,9 @@ export default async function RootRoute() {
 
   console.log(resp);
 
-  if (resp.data.length === 0) return null;
+  if(!resp.data || resp.data.length === 0) {
+    notFound();
+  }
 
 
 
