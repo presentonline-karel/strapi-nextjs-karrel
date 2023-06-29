@@ -10,32 +10,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { fetcher } from "@/utils/fetcher";
 import { articleBlocksRenderer } from "@/utils/article-blocks-renderer";
 import { formatMyDate } from "@/utils/date-formatter";
+import { FALLBACK_SEO } from "@/utils/fallback-seo";
 
 // Components
 import RelatedArticles from "@/app/components/sections/RelatedArticles";
 
-// Types
-type Props = {
-  params: {
-    lang: string;
-    slug: string;
-  };
-};
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}): Promise<Metadata> {
-  //const page = await getPageBySlug(params.slug, params.lang);
-  //if (!page.data[0].attributes.metadata) return FALLBACK_SEO;
-  //const metadata = page.data[0].attributes.metadata
 
-  /*return {
-      title: metadata.metaTitle,
-      description: metadata.metaDescription
-  }*/
-
+// Meta title & description
+export async function generateMetadata({ params, }: { params: { slug: string }; }): Promise<Metadata> {
   const articleSlug = params.slug.replace("/blog", "");
 
   // Qs
@@ -48,30 +31,30 @@ export async function generateMetadata({
           $eq: `${articleSlug}`,
         },
       },
-      populate: "*",
+      populate: {
+        seo: {
+          populate: "*",
+        },
+      },
     });
 
   const CONTENT_TYPE = "articles";
   const BASE_URL = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${CONTENT_TYPE}?`;
-
   const QUERY_1 = BASE_URL + queryParams();
-
   const resp = await fetcher(QUERY_1);
 
-  console.log("metaData resp", resp);
+  if(!resp.data[0].attributes.seo.metaTitle || !resp.data[0].attributes.seo.metaDescription) return FALLBACK_SEO;
 
-  //if (resp.data.length === 0) return null;
-
-  return resp;
+  return {
+    title: resp.data[0].attributes.seo.metaTitle,
+    description: resp.data[0].attributes.seo.metaDescription
+  }
 }
 
 
 
-export default async function BlogDetailPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+// Return page
+export default async function BlogDetailPage({ params, }: { params: { slug: string }; }) {
   const articleSlug = params.slug.replace("/blog", "");
 
   // Qs
@@ -102,12 +85,12 @@ export default async function BlogDetailPage({
 
   const CONTENT_TYPE = "articles";
   const BASE_URL = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${CONTENT_TYPE}?`;
-
   const QUERY_1 = BASE_URL + queryParams();
-
   const resp = await fetcher(QUERY_1);
 
   if (resp.data.length === 0) return null;
+
+
 
   return (
     <>

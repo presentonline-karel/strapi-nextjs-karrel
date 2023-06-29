@@ -107,7 +107,7 @@ export default function ContactForm() {
               onChange={formik.handleChange}
               value={formik.values.name}
               onBlur={formik.handleBlur}
-              className={`Input / py-3 px-4 mb-1 bg-neutrals-400 border-[1px] border-neutrals-600 rounded w-full font-paragraphs text-base leading-6 text-neutrals-1100 ${formik.touched.name == undefined ? "!border-neutrals-600" : ""} ${formik.touched.name && formik.errors.name ? "border-error-500" : "border-success-500"} placeholder:text-neutrals-800 focus:border-neutrals-1100 focus-visible:border-neutrals-1100 focus-visible:outline-none / xl:text-xl xl:leading-7 xl:px-6 xl:py-4 xl:mb-2`}
+              className={`Input / py-3 px-4 mb-1 bg-neutrals-400 border-[1px] rounded w-full font-paragraphs text-base leading-6 text-neutrals-1100 ${formik.touched.name == undefined ? "!border-neutrals-600" : ""} ${formik.touched.name && formik.errors.name ? "!border-error-500" : "border-success-500"} placeholder:text-neutrals-800 focus:border-neutrals-1100 focus-visible:border-neutrals-1100 focus-visible:outline-none / xl:text-xl xl:leading-7 xl:px-6 xl:py-4 xl:mb-2`}
             />
 
             <label
@@ -134,7 +134,7 @@ export default function ContactForm() {
               onChange={formik.handleChange}
               value={formik.values.email}
               onBlur={formik.handleBlur}
-              className={`Input / py-3 px-4 mb-1 bg-neutrals-400 border-[1px] border-neutrals-600 rounded w-full font-paragraphs text-base leading-6 text-neutrals-1100 ${formik.touched.email == undefined ? "!border-neutrals-600" : ""} ${formik.touched.email && formik.errors.email ? "border-error-500" : "border-success-500"} placeholder:text-neutrals-800 focus:border-neutrals-1100 focus-visible:border-neutrals-1100 focus-visible:outline-none / xl:text-xl xl:leading-7 xl:px-6 xl:py-4 xl:mb-2`}
+              className={`Input / py-3 px-4 mb-1 bg-neutrals-400 border-[1px] rounded w-full font-paragraphs text-base leading-6 text-neutrals-1100 ${formik.touched.email == undefined ? "!border-neutrals-600" : ""} ${formik.touched.email && formik.errors.email ? "!border-error-500" : "border-success-500"} placeholder:text-neutrals-800 focus:border-neutrals-1100 focus-visible:border-neutrals-1100 focus-visible:outline-none / xl:text-xl xl:leading-7 xl:px-6 xl:py-4 xl:mb-2`}
             />
 
             <label
@@ -161,7 +161,7 @@ export default function ContactForm() {
               value={formik.values.subject}
               onBlur={formik.handleBlur}
               placeholder="Subject"
-              className={`Input / py-3 px-4 mb-1 bg-neutrals-400 border-[1px] border-neutrals-600 rounded w-full font-paragraphs text-base leading-6 text-neutrals-1100 ${formik.touched.subject == undefined ? "!border-neutrals-600" : ""} ${formik.touched.subject && formik.errors.subject ? "border-error-500" : "border-success-500"} placeholder:text-neutrals-800 focus:border-neutrals-1100 focus-visible:border-neutrals-1100 focus-visible:outline-none / xl:text-xl xl:leading-7 xl:px-6 xl:py-4 xl:mb-2`}
+              className={`Input / py-3 px-4 mb-1 bg-neutrals-400 border-[1px] rounded w-full font-paragraphs text-base leading-6 text-neutrals-1100 ${formik.touched.subject == undefined ? "!border-neutrals-600" : ""} ${formik.touched.subject && formik.errors.subject ? "!border-error-500" : "border-success-500"} placeholder:text-neutrals-800 focus:border-neutrals-1100 focus-visible:border-neutrals-1100 focus-visible:outline-none / xl:text-xl xl:leading-7 xl:px-6 xl:py-4 xl:mb-2`}
             />
 
             <label
@@ -187,7 +187,7 @@ export default function ContactForm() {
               value={formik.values.message}
               onBlur={formik.handleBlur}
               placeholder="Message"
-              className={`Input / py-3 px-4 mb-1 bg-neutrals-400 border-[1px] border-neutrals-600 rounded w-full font-paragraphs text-base leading-6 text-neutrals-1100 resize-none h-48 ${formik.touched.message == undefined ? "!border-neutrals-600" : ""} ${formik.touched.message && formik.errors.message ? "border-error-500" : "border-success-500"} placeholder:text-neutrals-800 focus:border-neutrals-1100 focus-visible:border-neutrals-1100 focus-visible:outline-none / xl:text-xl xl:leading-7 xl:px-6 xl:py-4 xl:mb-2`}
+              className={`Input / py-3 px-4 mb-1 bg-neutrals-400 border-[1px] rounded w-full font-paragraphs text-base leading-6 text-neutrals-1100 resize-none h-48 ${formik.touched.message == undefined ? "!border-neutrals-600" : ""} ${formik.touched.message && formik.errors.message ? "!border-error-500" : "border-success-500"} placeholder:text-neutrals-800 focus:border-neutrals-1100 focus-visible:border-neutrals-1100 focus-visible:outline-none / xl:text-xl xl:leading-7 xl:px-6 xl:py-4 xl:mb-2`}
             />
 
             <label

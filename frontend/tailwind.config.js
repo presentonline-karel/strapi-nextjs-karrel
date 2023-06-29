@@ -15,6 +15,7 @@ module.exports = {
       },
       boxShadow: {
         card: "4px 8px 20px rgba(65, 73, 80, 0.04)",
+        cardHover: "4px 8px 20px rgba(65, 73, 80, 0.12)",
       },
       colors: {
         "prim-100": "#FFF8EB",

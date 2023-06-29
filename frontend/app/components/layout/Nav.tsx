@@ -24,6 +24,8 @@ import { Platform } from "@/types/Platform";
 // Components
 import ProgressBar from "@/app/components/blog/ProgressBar";
 
+
+
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [navData, setNavData] = useState<NavbarProps>();

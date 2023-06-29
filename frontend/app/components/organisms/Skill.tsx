@@ -34,7 +34,7 @@ export default function Skill({ icon, title, text }: SkillProps) {
 
         <p className="p / mb-5 / xl:text-base xl:mb-8">{text}</p>
 
-        <Link href={`#`} className="Link / flex items-center gap-2 text-neutrals-1100 font-headings text-base leading-6 font-semibold tracking-tight">
+        <Link href={`#`} className="Link / flex items-center gap-2 text-neutrals-1100 font-headings text-base leading-6 font-semibold tracking-tight / hover:gap-3">
           Read more
           <FontAwesomeIcon icon={faArrowRight} className="text-sm leading-6 text-prim-500 / xl:text-base" />
         </Link>

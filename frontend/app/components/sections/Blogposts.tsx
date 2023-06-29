@@ -1,7 +1,7 @@
 "use client";
 
 // React
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 
 // Utils
 import { fetcher } from "@/utils/fetcher";

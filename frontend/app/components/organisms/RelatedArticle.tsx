@@ -25,7 +25,7 @@ export default function RelatedArticle(data: BlogpostProps) {
 
 
   return (
-    <Link href={`/blog/${data.attributes.slug}`} className="Related-Article / flex gap-4 bg-neutrals-100 rounded border-[0.4px] border-neutrals-400 items-center shadow-card overflow-hidden / xl:gap-6">
+    <Link href={`/blog/${data.attributes.slug}`} className="Related-Article / flex gap-4 bg-neutrals-100 rounded border-[0.4px] border-neutrals-400 items-center shadow-card overflow-hidden hover:shadow-cardHover / xl:gap-6">
       <div className="Image / relative w-[104px] aspect-[10/11] / xl:w-[180px] xl:aspect-square">
         <Image src={imgUrl || ""} alt={data.attributes.cover.data.attributes.alternativeText || ""} fill={true} className="object-cover" />
       </div>

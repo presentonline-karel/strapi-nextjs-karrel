@@ -26,7 +26,7 @@ export default function Blogpost(data: BlogpostProps) {
 
 
   return (
-    <Link href={`/blog/${data.attributes.slug}`} className="Blogpost / rounded border-[0.4px] border-neutrals-400 flex flex-col gap-6 pb-5 shadow-card overflow-hidden / md:pb-0">
+    <Link href={`/blog/${data.attributes.slug}`} className="Blogpost / rounded border-[0.4px] border-neutrals-400 flex flex-col gap-6 pb-5 shadow-card overflow-hidden hover:shadow-cardHover / md:pb-0">
       <article className="Content / flex flex-col gap-6 / md:flex-row md:items-center md:gap-8 / xl:gap-10">
         <div className="Image / relative w-full aspect-[3/2] / md:aspect-[7/8] / lg:aspect-square / xl:max-w-[343px]">
           <Image src={coverImageUrl || ""} alt={data.attributes.cover.data.attributes.alternativeText || "none provided"} fill={true} className="object-cover" />
