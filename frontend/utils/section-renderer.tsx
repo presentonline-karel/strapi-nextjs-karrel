@@ -14,7 +14,7 @@ import RelatedArticles from "@/app/components/sections/RelatedArticles";
 
 
 
-export function sectionRenderer(section: any, index: number) {
+export function sectionRenderer(section: any, index: number, pageParamNr: number) {
   switch (section.__component) {
     case "sections.hero-primary":
       return <HeroPrimary key={index} data={section} />;
@@ -33,9 +33,9 @@ export function sectionRenderer(section: any, index: number) {
     case "sections.contact-form":
       return <ContactForm key={index} />;
     case "sections.blogposts":
-      return <BlogPosts key={index} />;
+      return <BlogPosts key={index} pageParamNr={pageParamNr} />;
     case "sections.related-articles":
-      return <RelatedArticles key={index} />;
+      return <RelatedArticles data={section} key={index} />;
     default:
       return <div key={index} className="bg-red-200">No data</div>;
   }
