@@ -14,6 +14,7 @@ import { Button } from "@/types/Button";
 
 export default function HeroSecondary({ data }: HeroProps) {
   const imgUrl = getStrapiMedia(data.image.data.attributes.url);
+  console.log("hero secondary img url", imgUrl);
 
   return (
     <div className="Hero-Secondary / bg-neutrals-100 pb-14 pt-[136px] relative z-0 / sm:pt-40 / md:pb-16 md:pt-40 / lg:p-0">
