@@ -74,5 +74,6 @@ export default async function RootRoute() {
 
 
 
-  return resp.data.attributes.contentSections.map((section: any, index: number) => sectionRenderer(section, index, 0));
+  //return resp.data.attributes.contentSections.map((section: any, index: number) => sectionRenderer(section, index, 0));
+  return resp.data.attributes.contentSections.map((section: any, index: number) => sectionRenderer(section, index));
 }
