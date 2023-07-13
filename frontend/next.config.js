@@ -9,7 +9,7 @@ const nextConfig = {
 		remotePatterns: [
 			{
 				protocol: "https",
-				hostname: "fortunate-victory-22b45df4b4.strapiapp.com",
+				hostname: "fortunate-victory-22b45df4b4.strapiapp.com/*",
 			},
 		],
 	},
