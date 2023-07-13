@@ -19,12 +19,14 @@ import { Request } from "@/types/Request";
 
 
 // Variables
+// @ts-ignore
 const parseJSON = (resp: NextApiResponse) => (resp.json ? resp.json() : resp);
 
 const checkStatus = (resp: NextApiResponse) => {
   if (Number(resp.status) >= 200 && Number(resp.status) < 300) {
     return resp;
   }
+  // @ts-ignore
   return parseJSON(resp).then(resp => {
     throw resp;
   });
@@ -49,6 +51,7 @@ export default function ContactForm() {
         headers,
         body: JSON.stringify({ data: values }),
       })
+      // @ts-ignore
         .then(checkStatus)
         .then(parseJSON);
     } catch (error) {
