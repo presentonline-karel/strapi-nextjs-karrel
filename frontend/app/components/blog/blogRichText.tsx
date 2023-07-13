@@ -8,7 +8,7 @@ interface BlogRichTextProps {
 
 
 
-export default function BlogRichText({ body }: BlogRichTextProps) {
+export default function blogRichText({ body }: BlogRichTextProps) {
   return (
     <ReactMarkdown className="p / mb-10 / xl:mb-12">{body}</ReactMarkdown>
   )

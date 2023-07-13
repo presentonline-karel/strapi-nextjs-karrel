@@ -1,18 +1,18 @@
 // Blog components
-import BlogImage from "@/app/components/blog/BlogImage";
-import BlogSubtitle from "@/app/components/blog/BlogSubtitle";
-import BlogRichText from "@/app/components/blog/BlogRichText";
+import blogImage from "@/app/components/blog/blogImage";
+import blogSubtitle from "@/app/components/blog/blogSubtitle";
+import blogRichText from "@/app/components/blog/blogRichText";
 
 
 
 export function articleBlocksRenderer(block: any, index: number) {
   switch (block.__component) {
     case "shared.media":
-      return <BlogImage key={index} data={block.file.data} />;
+      return <blogImage key={index} data={block.file.data} />;
     case "shared.subtitle":
-      return <BlogSubtitle key={index} {...block} />;
+      return <blogSubtitle key={index} {...block} />;
     case "shared.rich-text":
-      return <BlogRichText key={index} {...block} />;
+      return <blogRichText key={index} {...block} />;
     default:
       return <div key={index} className="bg-red-200">No data</div>;
   }

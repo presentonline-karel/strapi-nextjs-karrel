@@ -9,7 +9,7 @@ import { getStrapiMedia } from "@/utils/fetcher";
 
 
 
-export default function BlogImage({ data }: Picture) {
+export default function blogImage({ data }: Picture) {
   const imgUrl = getStrapiMedia(data.attributes.url);
 
   return (
