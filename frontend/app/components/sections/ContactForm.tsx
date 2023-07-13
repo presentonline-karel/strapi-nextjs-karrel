@@ -87,6 +87,7 @@ export default function ContactForm() {
     onSubmit: (values) => {
       //console.log("form submitted");
       //console.log(values);
+      // @ts-ignore
       handleRequestSubmit(values);
     },
   });

@@ -35,7 +35,7 @@ export default function Home() {
       //console.log("form submitted");
       //console.log(values);
       //router.push({ pathname: "/success", query: values });
-
+      // @ts-ignore
       handleRequestSubmit(values);
     },
   });
