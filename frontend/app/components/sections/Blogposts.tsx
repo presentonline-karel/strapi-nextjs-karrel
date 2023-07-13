@@ -17,7 +17,7 @@ import { BlogpostProps } from "@/types/Blogpost";
 
 
 //export default function BlogPosts({ pageParamNr }: {pageParamNr: number}) {
-export default function BlogPosts({ pageParamNr }: {pageParamNr: number}) {
+export default function BlogPosts() {
 
   // States
   const [blogposts, setBlogposts] = useState([]);
