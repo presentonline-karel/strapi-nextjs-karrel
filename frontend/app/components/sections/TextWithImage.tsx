@@ -42,6 +42,7 @@ export default function TextWithImage({ data }: TextImageProps) {
             src={imgUrl || ""}
             alt={data.image.data.attributes.alternativeText || "none provided"}
             fill={true}
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
             className="object-cover z-0"
           />
         </div>

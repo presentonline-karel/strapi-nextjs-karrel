@@ -43,6 +43,7 @@ export default function HeroSecondary({ data }: HeroProps) {
             alt={data.image.data.attributes.alternativeText || "none provided"}
             className="block w-full h-full object-cover p-0 m-0 inset-0"
             fill={true}
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
             priority={true}
           />
         </div>

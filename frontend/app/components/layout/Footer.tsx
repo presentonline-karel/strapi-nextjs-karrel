@@ -67,7 +67,7 @@ export default async function Footer() {
                     src={getStrapiMedia(resp.data.attributes.footer.footerLogo.logoImg.data.attributes.url) || ""}
                     alt={resp.data.attributes.footer.footerLogo.logoImg.data.attributes.alternativeText || "none provided"}
                     fill={true}
-                    className=""
+                    sizes="(max-width: 1280px) 102px, (min-width: 1440px) 164px"
                   />
                 </div>
 

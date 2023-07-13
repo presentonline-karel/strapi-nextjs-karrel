@@ -1,4 +1,4 @@
-"use client";
+//"use client";
 
 // Next & React
 import { Metadata } from "next";
@@ -13,7 +13,7 @@ import { FALLBACK_SEO } from "@/utils/fallback-seo";
 
 
 // Meta title & description
-export async function generateMetadata({ params, }: { params: { slug: string }; }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { slug: string }; }): Promise<Metadata> {
 
   // Qs
   const qs = require("qs");
@@ -51,14 +51,14 @@ export async function generateMetadata({ params, }: { params: { slug: string }; 
 export default async function Page({ params }: { params: { slug: string; } }) {
 
   // Page param for pagination blogposts
-  const searchParams = useSearchParams();
-  const pageSize = searchParams.get("page");
-  console.log("getPageSize", pageSize);
-  const pageParam = pageSize === null ? 1 : pageSize;
+  //const searchParams = useSearchParams();
+  //const pageSize = searchParams.get("page");
+  //console.log("getPageSize", pageSize);
+  //const pageParam = pageSize === null ? 1 : pageSize;
 
-  console.log("pageParam before parseInt", pageParam);
+  //console.log("pageParam before parseInt", pageParam);
 
-  const pageParamNr = parseInt(pageParam as string);
+  //const pageParamNr = parseInt(pageParam as string);
 
   //console.log("pageParamNr", pageParamNr, typeof pageParamNr);
 
@@ -91,5 +91,6 @@ export default async function Page({ params }: { params: { slug: string; } }) {
 
 
 
-  return resp.data[0].attributes.contentSections.map((section: any, index: number) => sectionRenderer(section, index, pageParamNr));
+  //return resp.data[0].attributes.contentSections.map((section: any, index: number) => sectionRenderer(section, index, pageParamNr));
+  return resp.data[0].attributes.contentSections.map((section: any, index: number) => sectionRenderer(section, index));
 }

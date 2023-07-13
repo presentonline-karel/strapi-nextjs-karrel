@@ -104,6 +104,7 @@ export default function Nav() {
                         .attributes.alternativeText || "none provided"
                     }
                     fill={true}
+                    sizes="(max-width: 1280px) 102px, (min-width: 1440px) 164px"
                     onClick={() => setMenuOpen(false)}
                   />
                 </div>

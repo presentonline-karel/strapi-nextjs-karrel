@@ -43,6 +43,7 @@ export default function HeroPrimary({ data }: HeroProps) {
             alt={data.image.data.attributes.alternativeText || "none provided"}
             className="object-cover rounded border-[0.4px] border-neutrals-400 shadow-card / md:shadow-none md:border-t-0 md:rounded-none"
             fill={true}
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
             priority={true}
           />
         </div>
