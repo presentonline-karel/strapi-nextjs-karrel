@@ -19,9 +19,9 @@ import { Request } from "@/types/Request";
 
 
 // Variables
-const parseJSON = (resp:NextApiResponse) => (resp.json ? resp.json() : resp);
+const parseJSON = (resp: NextApiResponse) => (resp.json ? resp.json() : resp);
 
-const checkStatus = (resp:NextApiResponse) => {
+const checkStatus = (resp: NextApiResponse) => {
   if (Number(resp.status) >= 200 && Number(resp.status) < 300) {
     return resp;
   }
