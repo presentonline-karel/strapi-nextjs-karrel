@@ -90,7 +90,7 @@ export default function Nav() {
           <div className="Container / py-5 px-4 / sm:px-12 sm:py-8 / md:flex md:justify-between md:items-center md:py-8 md:px-12 md:border-b-[0.4px] / lg:py-10 lg:px-[120px] / xl:max-w-[1440px] xl:mx-auto xl:border-x-[0.4px] xl:border-neutrals-400">
             {/* Top */}
             <div className="flex justify-between items-center">
-              <Link href={`/`}>
+              <Link href={`/home`}>
                 <div className="Logo / relative w-[102px] h-[40px] / xl:w-[164px] xl:h-[64px]">
                   <Image
                     src={
