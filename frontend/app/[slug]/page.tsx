@@ -3,7 +3,7 @@
 // Next & React
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { useSearchParams } from 'next/navigation';
+// import { useSearchParams } from 'next/navigation';
 
 // Utils
 import { fetcher } from "@/utils/fetcher";

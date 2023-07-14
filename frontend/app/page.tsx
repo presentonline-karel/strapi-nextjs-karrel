@@ -17,15 +17,15 @@ config.autoAddCss = false;
 export const revalidate = 0;
 
 // Meta title & description
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { slug: string; } }): Promise<Metadata> {
 
   // Qs
   const qs = require("qs");
 
-  const params = () => qs.stringify({
+  const queryParams = () => qs.stringify({
     filters: {
       slug: {
-        $eq: `/home`,
+        $eq: `/${params.slug}`,
       },
     },
     populate: {
@@ -39,7 +39,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const CONTENT_TYPE = "pages";
   //const BASE_URL = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${CONTENT_TYPE}/${ID}?`;
   const BASE_URL = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${CONTENT_TYPE}?`;
-  const QUERY_1 = BASE_URL + params();
+  const QUERY_1 = BASE_URL + queryParams();
   const resp = await fetcher(QUERY_1);
 
   if (!resp.data || !resp.data.attributes.metadata.metaTitle || !resp.data.attributes.metadata.metaDescription) return FALLBACK_SEO;
@@ -53,15 +53,15 @@ export async function generateMetadata(): Promise<Metadata> {
 
 
 // Return page
-export default async function RootRoute() {
+export default async function RootRoute({ params }: { params: { slug: string; } }) {
 
   // Qs
   const qs = require("qs");
 
-  const params = () => qs.stringify({
+  const queryParams = () => qs.stringify({
     filters: {
       slug: {
-        $eq: `/home`,
+        $eq: `/${params.slug}`,
       },
     },
     populate: {
@@ -75,7 +75,7 @@ export default async function RootRoute() {
   const CONTENT_TYPE = "pages";
   //const BASE_URL = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${CONTENT_TYPE}/${ID}?`;
   const BASE_URL = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${CONTENT_TYPE}?`;
-  const QUERY_1 = BASE_URL + params();
+  const QUERY_1 = BASE_URL + queryParams();
   const resp = await fetcher(QUERY_1);
 
   if (!resp.data || resp.data.length === 0) {
