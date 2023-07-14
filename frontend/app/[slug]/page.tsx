@@ -12,6 +12,8 @@ import { FALLBACK_SEO } from "@/utils/fallback-seo";
 
 
 
+export const revalidate = 0;
+
 // Meta title & description
 export async function generateMetadata({ params }: { params: { slug: string }; }): Promise<Metadata> {
 

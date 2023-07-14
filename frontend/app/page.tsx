@@ -14,6 +14,8 @@ config.autoAddCss = false;
 
 
 
+export const revalidate = 0;
+
 // Meta title & description
 export async function generateMetadata(): Promise<Metadata> {
 

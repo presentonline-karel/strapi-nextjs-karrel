@@ -18,6 +18,8 @@ import RelatedArticles from "@/app/components/sections/RelatedArticles";
 
 
 
+export const revalidate = 0;
+
 // Meta title & description
 export async function generateMetadata({ params, }: { params: { slug: string }; }): Promise<Metadata> {
   const articleSlug = params.slug.replace("/blog", "");
