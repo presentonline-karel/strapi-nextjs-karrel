@@ -17,7 +17,7 @@ config.autoAddCss = false;
 export const revalidate = 0;
 
 // Meta title & description
-export async function generateMetadata({ params }: { params: { slug: string; } }): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
 
   // Qs
   const qs = require("qs");
@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: { params: { slug: string; } }
   const queryParams = () => qs.stringify({
     filters: {
       slug: {
-        $eq: `/${params.slug}`,
+        $eq: `/home`,
       },
     },
     populate: {
@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: { params: { slug: string; } }
 
 
 // Return page
-export default async function RootRoute({ params }: { params: { slug: string; } }) {
+export default async function RootRoute() {
 
   // Qs
   const qs = require("qs");
@@ -61,7 +61,7 @@ export default async function RootRoute({ params }: { params: { slug: string; } 
   const queryParams = () => qs.stringify({
     filters: {
       slug: {
-        $eq: `/${params.slug}`,
+        $eq: `/home`,
       },
     },
     populate: {
