@@ -1,6 +1,7 @@
 // Next
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { redirect } from 'next/navigation';
 
 // Utils
 import { fetcher } from "@/utils/fetcher";
@@ -54,6 +55,8 @@ export async function generateMetadata(): Promise<Metadata> {
 
 // Return page
 export default async function RootRoute() {
+
+  redirect('/home');
 
   // Qs
   const qs = require("qs");
