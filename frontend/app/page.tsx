@@ -22,23 +22,27 @@ export async function generateMetadata(): Promise<Metadata> {
   // Qs
   const qs = require("qs");
 
-  const params = () => qs.stringify(
-    {
-      populate: {
-        metadata: {
-          populate: "*",
-        },
+  const params = () => qs.stringify({
+    filters: {
+      slug: {
+        $eq: `/home`,
       },
-    }
-  )
+    },
+    populate: {
+      metadata: {
+        populate: "*",
+      },
+    },
+  })
 
-  const ID = 1;
+  //const ID = 1;
   const CONTENT_TYPE = "pages";
-  const BASE_URL = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${CONTENT_TYPE}/${ID}?`;
+  //const BASE_URL = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${CONTENT_TYPE}/${ID}?`;
+  const BASE_URL = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${CONTENT_TYPE}?`;
   const QUERY_1 = BASE_URL + params();
   const resp = await fetcher(QUERY_1);
 
-  if(!resp.data || !resp.data.attributes.metadata.metaTitle || !resp.data.attributes.metadata.metaDescription) return FALLBACK_SEO;
+  if (!resp.data || !resp.data.attributes.metadata.metaTitle || !resp.data.attributes.metadata.metaDescription) return FALLBACK_SEO;
 
   return {
     title: resp.data.attributes.metadata.metaTitle,
@@ -54,23 +58,27 @@ export default async function RootRoute() {
   // Qs
   const qs = require("qs");
 
-  const params = () => qs.stringify(
-    {
-      populate: {
-        contentSections: {
-          populate: "*",
-        },
+  const params = () => qs.stringify({
+    filters: {
+      slug: {
+        $eq: `/home`,
       },
-    }
-  )
+    },
+    populate: {
+      contentSections: {
+        populate: "*",
+      },
+    },
+  })
 
-  const ID = 1;
+  //const ID = 1;
   const CONTENT_TYPE = "pages";
-  const BASE_URL = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${CONTENT_TYPE}/${ID}?`;
+  //const BASE_URL = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${CONTENT_TYPE}/${ID}?`;
+  const BASE_URL = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${CONTENT_TYPE}?`;
   const QUERY_1 = BASE_URL + params();
   const resp = await fetcher(QUERY_1);
 
-  if(!resp.data || resp.data.length === 0) {
+  if (!resp.data || resp.data.length === 0) {
     notFound();
   }
 
